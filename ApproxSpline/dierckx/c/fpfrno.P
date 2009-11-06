@@ -1,0 +1,1 @@
+extern int fpfrno_(integer *maxtr, integer *up, integer *left, integer *right, integer *info, integer *point, integer *merk, integer *n1, integer *count, integer *ier);

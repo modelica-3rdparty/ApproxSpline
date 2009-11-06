@@ -1,0 +1,2 @@
+extern int fourco_(doublereal *t, integer *n, doublereal *c__, doublereal *alfa, integer *m, doublereal *ress, doublereal *resc, doublereal *wrk1, doublereal *wrk2, integer *ier);
+/*:ref: fpbfou_ 14 5 7 4 7 7 7 */

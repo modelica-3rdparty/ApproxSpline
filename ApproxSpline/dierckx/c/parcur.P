@@ -1,0 +1,3 @@
+extern int parcur_(integer *iopt, integer *ipar, integer *idim, integer *m, doublereal *u, integer *mx, doublereal *x, doublereal *w, doublereal *ub, doublereal *ue, integer *k, doublereal *s, integer *nest, integer *n, doublereal *t, integer *nc, doublereal *c__, doublereal *fp, doublereal *wrk, integer *lwrk, integer *iwrk, integer *ier);
+/*:ref: fpchec_ 14 6 7 4 7 4 4 4 */
+/*:ref: fppara_ 14 29 4 4 4 7 4 7 7 7 7 4 7 4 7 4 4 4 4 7 4 7 7 7 7 7 7 7 7 4 4 */

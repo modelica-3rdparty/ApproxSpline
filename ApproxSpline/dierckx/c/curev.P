@@ -1,0 +1,2 @@
+extern int curev_(integer *idim, doublereal *t, integer *n, doublereal *c__, integer *nc, integer *k, doublereal *u, integer *m, doublereal *x, integer *mx, integer *ier);
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */

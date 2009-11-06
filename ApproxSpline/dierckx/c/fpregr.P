@@ -1,0 +1,4 @@
+extern int fpregr_(integer *iopt, doublereal *x, integer *mx, doublereal *y, integer *my, doublereal *z__, integer *mz, doublereal *xb, doublereal *xe, doublereal *yb, doublereal *ye, integer *kx, integer *ky, doublereal *s, integer *nxest, integer *nyest, doublereal *tol, integer *maxit, integer *nc, integer *nx, doublereal *tx, integer *ny, doublereal *ty, doublereal *c__, doublereal *fp, doublereal *fp0, doublereal *fpold, doublereal *reducx, doublereal *reducy, doublereal *fpintx, doublereal *fpinty, integer *lastdi, integer *nplusx, integer *nplusy, integer *nrx, integer *nry, integer *nrdatx, integer *nrdaty, doublereal *wrk, integer *lwrk, integer *ier);
+/*:ref: fpgrre_ 14 38 4 4 4 4 7 4 7 4 7 4 4 4 7 4 7 4 7 7 4 7 7 7 4 4 4 4 4 4 7 7 7 7 7 7 7 7 4 4 */
+/*:ref: fpknot_ 14 9 7 4 7 4 7 4 4 4 4 */
+/*:ref: fprati_ 7 6 7 7 7 7 7 7 */

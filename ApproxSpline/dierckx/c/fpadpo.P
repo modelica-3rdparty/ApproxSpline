@@ -1,0 +1,2 @@
+extern int fpadpo_(integer *idim, doublereal *t, integer *n, doublereal *c__, integer *nc, integer *k, doublereal *cp, integer *np, doublereal *cc, doublereal *t1, doublereal *t2);
+/*:ref: fpinst_ 14 11 4 7 4 7 4 7 4 7 4 7 4 */

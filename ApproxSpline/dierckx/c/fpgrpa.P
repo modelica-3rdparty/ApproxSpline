@@ -1,0 +1,7 @@
+extern int fpgrpa_(integer *ifsu, integer *ifsv, integer *ifbu, integer *ifbv, integer *idim, integer *ipar, doublereal *u, integer *mu, doublereal *v, integer *mv, doublereal *z__, integer *mz, doublereal *tu, integer *nu, doublereal *tv, integer *nv, doublereal *p, doublereal *c__, integer *nc, doublereal *fp, doublereal *fpu, doublereal *fpv, integer *mm, integer *mvnu, doublereal *spu, doublereal *spv, doublereal *right, doublereal *q, doublereal *au, doublereal *au1, doublereal *av, doublereal *av1, doublereal *bu, doublereal *bv, integer *nru, integer *nrv);
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */
+/*:ref: fpdisc_ 14 5 7 4 4 7 4 */
+/*:ref: fptrnp_ 14 12 4 4 4 4 4 7 7 7 7 7 7 7 */
+/*:ref: fptrpe_ 14 13 4 4 4 4 4 7 7 7 7 7 7 7 7 */
+/*:ref: fpback_ 14 6 7 7 4 4 7 4 */
+/*:ref: fpbacp_ 14 8 7 7 7 4 4 7 4 4 */

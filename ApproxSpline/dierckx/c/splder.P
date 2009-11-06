@@ -1,0 +1,2 @@
+extern int splder_(doublereal *t, integer *n, doublereal *c__, integer *k, integer *nu, doublereal *x, doublereal *y, integer *m, doublereal *wrk, integer *ier);
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */

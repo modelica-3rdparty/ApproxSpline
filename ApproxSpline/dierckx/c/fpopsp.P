@@ -1,0 +1,3 @@
+extern int fpopsp_(integer *ifsu, integer *ifsv, integer *ifbu, integer *ifbv, doublereal *u, integer *mu, doublereal *v, integer *mv, doublereal *r__, integer *mr, doublereal *r0, doublereal *r1, doublereal *dr, integer *iopt, integer *ider, doublereal *tu, integer *nu, doublereal *tv, integer *nv, integer *nuest, integer *nvest, doublereal *p, doublereal *step, doublereal *c__, integer *nc, doublereal *fp, doublereal *fpu, doublereal *fpv, integer *nru, integer *nrv, doublereal *wrk, integer *lwrk);
+/*:ref: fpgrsp_ 14 45 4 4 4 4 4 7 4 7 4 7 4 7 4 4 7 4 7 4 7 7 4 7 7 7 7 4 4 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 4 4 */
+/*:ref: fpsysy_ 14 3 7 4 7 */

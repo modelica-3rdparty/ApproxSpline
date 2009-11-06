@@ -1,0 +1,4 @@
+extern int fppogr_(integer *iopt, integer *ider, doublereal *u, integer *mu, doublereal *v, integer *mv, doublereal *z__, integer *mz, doublereal *z0, doublereal *r__, doublereal *s, integer *nuest, integer *nvest, doublereal *tol, integer *maxit, integer *nc, integer *nu, doublereal *tu, integer *nv, doublereal *tv, doublereal *c__, doublereal *fp, doublereal *fp0, doublereal *fpold, doublereal *reducu, doublereal *reducv, doublereal *fpintu, doublereal *fpintv, doublereal *dz, doublereal *step, integer *lastdi, integer *nplusu, integer *nplusv, integer *lasttu, integer *nru, integer *nrv, integer *nrdatu, integer *nrdatv, doublereal *wrk, integer *lwrk, integer *ier);
+/*:ref: fpopdi_ 14 31 4 4 4 4 7 4 7 4 7 4 7 7 4 4 7 4 7 4 4 4 7 7 7 4 7 7 7 4 4 7 4 */
+/*:ref: fpknot_ 14 9 7 4 7 4 7 4 4 4 4 */
+/*:ref: fprati_ 7 6 7 7 7 7 7 7 */

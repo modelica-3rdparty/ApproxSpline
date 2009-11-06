@@ -1,0 +1,2 @@
+extern int profil_(integer *iopt, doublereal *tx, integer *nx, doublereal *ty, integer *ny, doublereal *c__, integer *kx, integer *ky, doublereal *u, integer *nu, doublereal *cu, integer *ier);
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */

@@ -1,0 +1,2 @@
+extern int sproot_(doublereal *t, integer *n, doublereal *c__, doublereal *zero, integer *mest, integer *m, integer *ier);
+/*:ref: fpcuro_ 14 6 7 7 7 7 7 4 */

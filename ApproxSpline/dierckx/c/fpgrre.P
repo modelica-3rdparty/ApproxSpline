@@ -1,0 +1,6 @@
+extern int fpgrre_(integer *ifsx, integer *ifsy, integer *ifbx, integer *ifby, doublereal *x, integer *mx, doublereal *y, integer *my, doublereal *z__, integer *mz, integer *kx, integer *ky, doublereal *tx, integer *nx, doublereal *ty, integer *ny, doublereal *p, doublereal *c__, integer *nc, doublereal *fp, doublereal *fpx, doublereal *fpy, integer *mm, integer *mynx, integer *kx1, integer *kx2, integer *ky1, integer *ky2, doublereal *spx, doublereal *spy, doublereal *right, doublereal *q, doublereal *ax, doublereal *ay, doublereal *bx, doublereal *by, integer *nrx, integer *nry);
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */
+/*:ref: fpdisc_ 14 5 7 4 4 7 4 */
+/*:ref: fpgivs_ 14 4 7 7 7 7 */
+/*:ref: fprota_ 14 4 7 7 7 7 */
+/*:ref: fpback_ 14 6 7 7 4 4 7 4 */

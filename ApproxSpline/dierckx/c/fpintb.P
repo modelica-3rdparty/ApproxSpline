@@ -1,0 +1,1 @@
+extern int fpintb_(doublereal *t, integer *n, doublereal *bint, integer *nk1, doublereal *x, doublereal *y);

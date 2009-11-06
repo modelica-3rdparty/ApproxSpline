@@ -1,0 +1,2 @@
+extern int cualde_(integer *idim, doublereal *t, integer *n, doublereal *c__, integer *nc, integer *k1, doublereal *u, doublereal *d__, integer *nd, integer *ier);
+/*:ref: fpader_ 14 7 7 4 7 4 7 4 7 */

@@ -1,0 +1,1 @@
+extern int fpseno_(integer *maxtr, integer *up, integer *left, integer *right, integer *info, integer *merk, integer *ibind, integer *nbind);

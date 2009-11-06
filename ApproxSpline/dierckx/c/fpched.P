@@ -1,0 +1,1 @@
+extern int fpched_(doublereal *x, integer *m, doublereal *t, integer *n, integer *k, integer *ib, integer *ie, integer *ier);

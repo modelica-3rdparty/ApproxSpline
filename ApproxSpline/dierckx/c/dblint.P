@@ -1,0 +1,2 @@
+extern doublereal dblint_(doublereal *tx, integer *nx, doublereal *ty, integer *ny, doublereal *c__, integer *kx, integer *ky, doublereal *xb, doublereal *xe, doublereal *yb, doublereal *ye, doublereal *wrk);
+/*:ref: fpintb_ 14 6 7 4 7 4 7 7 */

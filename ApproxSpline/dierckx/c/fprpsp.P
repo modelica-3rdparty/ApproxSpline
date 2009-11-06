@@ -1,0 +1,1 @@
+extern int fprpsp_(integer *nt, integer *np, doublereal *co, doublereal *si, doublereal *c__, doublereal *f, integer *ncoff);

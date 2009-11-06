@@ -1,0 +1,6 @@
+extern int concur_(integer *iopt, integer *idim, integer *m, doublereal *u, integer *mx, doublereal *x, doublereal *xx, doublereal *w, integer *ib, doublereal *db, integer *nb, integer *ie, doublereal *de, integer *ne, integer *k, doublereal *s, integer *nest, integer *n, doublereal *t, integer *nc, doublereal *c__, integer *np, doublereal *cp, doublereal *fp, doublereal *wrk, integer *lwrk, integer *iwrk, integer *ier);
+/*:ref: fpched_ 14 8 7 4 7 4 4 4 4 4 */
+/*:ref: fppocu_ 14 12 4 4 7 7 4 7 4 4 7 4 7 4 */
+/*:ref: curev_ 14 11 4 7 4 7 4 4 7 4 7 4 4 */
+/*:ref: fpcons_ 14 29 4 4 4 7 4 7 7 4 4 4 7 4 7 4 4 4 4 7 4 7 7 7 7 7 7 7 7 4 4 */
+/*:ref: fpadpo_ 14 11 4 7 4 7 4 4 7 4 7 7 7 */

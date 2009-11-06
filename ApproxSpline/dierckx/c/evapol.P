@@ -1,0 +1,2 @@
+extern doublereal evapol_(doublereal *tu, integer *nu, doublereal *tv, integer *nv, doublereal *c__, D_fp rad, doublereal *x, doublereal *y);
+/*:ref: bispev_ 14 17 7 4 7 4 7 4 4 7 4 7 4 7 7 4 4 4 4 */

@@ -1,0 +1,9 @@
+extern int fpsurf_(integer *iopt, integer *m, doublereal *x, doublereal *y, doublereal *z__, doublereal *w, doublereal *xb, doublereal *xe, doublereal *yb, doublereal *ye, integer *kxx, integer *kyy, doublereal *s, integer *nxest, integer *nyest, doublereal *eta, doublereal *tol, integer *maxit, integer *nmax, integer *km1, integer *km2, integer *ib1, integer *ib3, integer *nc, integer *intest, integer *nrest, integer *nx0, doublereal *tx, integer *ny0, doublereal *ty, doublereal *c__, doublereal *fp, doublereal *fp0, doublereal *fpint, doublereal *coord, doublereal *f, doublereal *ff, doublereal *a, doublereal *q, doublereal *bx, doublereal *by, doublereal *spx, doublereal *spy, doublereal *h__, integer *index, integer *nummer, doublereal *wrk, integer *lwrk, integer *ier);
+/*:ref: fporde_ 14 12 7 7 4 4 4 7 4 7 4 4 4 4 */
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */
+/*:ref: fpgivs_ 14 4 7 7 7 7 */
+/*:ref: fprota_ 14 4 7 7 7 7 */
+/*:ref: fpback_ 14 6 7 7 4 4 7 4 */
+/*:ref: fprank_ 14 12 7 7 4 4 4 7 7 7 4 7 7 7 */
+/*:ref: fpdisc_ 14 5 7 4 4 7 4 */
+/*:ref: fprati_ 7 6 7 7 7 7 7 7 */

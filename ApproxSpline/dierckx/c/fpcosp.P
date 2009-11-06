@@ -1,0 +1,5 @@
+extern int fpcosp_(integer *m, doublereal *x, doublereal *y, doublereal *w, integer *n, doublereal *t, doublereal *e, integer *maxtr, integer *maxbin, doublereal *c__, doublereal *sq, doublereal *sx, logical *bind, integer *nm, integer *mb, doublereal *a, doublereal *b, doublereal *const__, doublereal *z__, doublereal *zz, doublereal *u, doublereal *q, integer *info, integer *up, integer *left, integer *right, integer *jbind, integer *ibind, integer *ier);
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */
+/*:ref: fpadno_ 14 10 4 4 4 4 4 4 4 4 4 4 */
+/*:ref: fpdeno_ 14 6 4 4 4 4 4 4 */
+/*:ref: fpseno_ 14 8 4 4 4 4 4 4 4 4 */

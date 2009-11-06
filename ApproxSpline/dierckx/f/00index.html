@@ -1,0 +1,271 @@
+<head>
+<title>DIERCKX</title>
+<meta name="waisindex" value="nse">
+</head>
+<h1>DIERCKX</h1>
+
+Click <A HREF="http://www.netlib.org/master_counts2.html#dierckx">here</A> to see the number of accesses to this library.
+
+<p>
+DIERCKX is a package of Fortran subroutines for calculating smoothing
+splines for various kinds of data and geometries, with automatic
+knot selection.
+This library is also called FITPACK, but is independent of
+the <a href="http://www.netlib.org/fitpack/">FITPACK</a> library
+by Alan Cline.
+
+<dl>
+<dt>Reference
+<dd>Paul Dierckx, Curve and Surface Fitting with Splines, Oxford
+University Press, 1993
+<dt>Developer
+<dd>Paul Dierckx, Department of Computer Science, K.U. Leuven,
+Celestijnenlaan 200 A, B-3001, Heverlee, Belgium
+<address>Paul.Dierckx@cs.kuleuven.ac.be</address>
+</dl>
+
+<p>
+<hr>
+
+<pre>
+#========	Curve fitting routines ======
+file	<a href="curfit.f">curfit.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/curfit.f">curfit.f plus dependencies</a>
+for	general curve fitting
+gams	k1a1a1, k5, l8g, l8h
+
+file	<a href="percur.f">percur.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/percur.f">percur.f plus dependencies</a>
+for	curve fitting with periodic splines
+gams	k1a1a1, k5, l8g, l8h
+
+file	<a href="parcur.f">parcur.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/parcur.f">parcur.f plus dependencies</a>
+for	smoothing of parametric curves
+gams	k1a1a1, k5, l8g, l8h
+
+file	<a href="clocur.f">clocur.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/clocur.f">clocur.f plus dependencies</a>
+for	smoothing of closed curves
+gams	k1a1a1, k5, l8g, l8h
+
+file	<a href="concur.f">concur.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/concur.f">concur.f plus dependencies</a>
+for	smoothing with end point derivative constraints
+gams	k1a1a1, k5, l8g, l8h
+
+file	<a href="cocosp.f">cocosp.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/cocosp.f">cocosp.f plus dependencies</a>
+for	least-squares fitting with convexity constraints
+gams	k1a2a
+
+file	<a href="concon.f">concon.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/concon.f">concon.f plus dependencies</a>
+for	automatic smoothing with convexity constraints
+gams	k5, k1a2a
+
+#========	Curve application routines ======
+file	<a href="splev.f">splev.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/splev.f">splev.f plus dependencies</a>
+for	evaluation of a spline function
+gams	e3a1, k6a1
+
+file	<a href="splder.f">splder.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/splder.f">splder.f plus dependencies</a>
+for	derivative calculation of a spline function
+gams	e3a2, k6a2
+
+file	<a href="spalde.f">spalde.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/spalde.f">spalde.f plus dependencies</a>
+for	all derivatives of a spline function
+gams	e3a2, k6a2
+
+file	<a href="curev.f">curev.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/curev.f">curev.f plus dependencies</a>
+for	evaluation of a spline curve
+gams	e3a1, k6a1
+
+file	<a href="cualde.f">cualde.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/cualde.f">cualde.f plus dependencies</a>
+for	all derivatives of a spline curve
+gams	k6a2
+
+file	<a href="insert.f">insert.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/insert.f">insert.f plus dependencies</a>
+for	inserting a knot into a given spline
+gams	e3a3, k6c
+
+file	<a href="splint.f">splint.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/splint.f">splint.f plus dependencies</a>
+for	integration of a spline function
+gams	e3a3, k6a3
+
+file	<a href="fourco.f">fourco.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fourco.f">fourco.f plus dependencies</a>
+for	fourier coefficients of a cubic spline
+gams	e3d, k6d
+
+file	<a href="sproot.f">sproot.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/sproot.f">sproot.f plus dependencies</a>
+for	the zeros of a cubic spline
+gams	e3d, f1b, k6d
+
+#========	Surface fitting routines ======
+file	<a href="surfit.f">surfit.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/surfit.f">surfit.f plus dependencies</a>
+for	surface fitting to scattered data
+gams	k1a1b, k5, l8g, l8h
+
+file	<a href="regrid.f">regrid.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/regrid.f">regrid.f plus dependencies</a>
+for	surface fitting to data on a rectangular grid
+gams	k1a1b, k5, l8g, l8h
+
+file	<a href="polar.f">polar.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/polar.f">polar.f plus dependencies</a>
+for	surface fitting using generalized polar coordinates
+gams	k1a1b, k5, l8g, l8h
+
+file	<a href="pogrid.f">pogrid.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/pogrid.f">pogrid.f plus dependencies</a>
+for	surface fitting to data on a polar grid
+gams	k1a1b, k5, l8g, l8h
+
+file	<a href="sphere.f">sphere.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/sphere.f">sphere.f plus dependencies</a>
+for	surface fitting using spherical coordinates
+gams	k1a1b, k5, l8g, l8h
+
+file	<a href="spgrid.f">spgrid.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/spgrid.f">spgrid.f plus dependencies</a>
+for	surface fitting to data on a spherical grid
+gams	k1a1b, k5, l8g, l8h
+
+file	<a href="parsur.f">parsur.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/parsur.f">parsur.f plus dependencies</a>
+for	parametric surface fitting to data on a grid
+gams	k1a1b, k5, l8g, l8h
+
+#========	Surface application routines ======
+file	<a href="bispev.f">bispev.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/bispev.f">bispev.f plus dependencies</a>
+for	evaluation of a bivariate spline function
+gams	k6a1
+
+file	<a href="parder.f">parder.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/parder.f">parder.f plus dependencies</a>
+for	partial derivatives of a bivariate spline
+gams	e3a2, k6a2
+
+file	<a href="dblint.f">dblint.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/dblint.f">dblint.f plus dependencies</a>
+for	integration of a bivariate spline
+gams	e3a3, k6a3
+
+file	<a href="profil.f">profil.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/profil.f">profil.f plus dependencies</a>
+for	cross sections of a bivariate spline
+gams	e3d, k6d
+
+file	<a href="evapol.f">evapol.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/evapol.f">evapol.f plus dependencies</a>
+for	evaluation of a polar spline
+gams	e3a1, k6a1
+
+file	<a href="surev.f">surev.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/surev.f">surev.f plus dependencies</a>
+for	evaluation of a parametric spline surface
+gams	e3a1, k6a1
+
+lib	<a href="ex/">ex</a>
+for	test programs for each of the 29 main routines
+
+#	This index file only describes the top-level routines.
+#	The remaining FITPACK programs are lower level routines either called directly
+#	or indirectly by one or more of the user-level routines below. Their names all
+#	begin with the initials fp (fpader, fpadno,...) to avoid confusion with other
+#	possible user-supplied routines.
+file	<a href="fpader.f">fpader.f</a>
+
+file	<a href="fpadno.f">fpadno.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpadno.f">fpadno.f plus dependencies</a>
+
+file	<a href="fpadpo.f">fpadpo.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpadpo.f">fpadpo.f plus dependencies</a>
+
+file	<a href="fpback.f">fpback.f</a>
+
+file	<a href="fpbacp.f">fpbacp.f</a>
+
+file	<a href="fpbfout.f">fpbfout.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpbfout.f">fpbfout.f plus dependencies</a>
+
+file	<a href="fpbisp.f">fpbisp.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpbisp.f">fpbisp.f plus dependencies</a>
+
+file	<a href="fpbspl.f">fpbspl.f</a>
+
+file	<a href="fpchec.f">fpchec.f</a>
+
+file	<a href="fpched.f">fpched.f</a>
+
+file	<a href="fpchep.f">fpchep.f</a>
+
+file	<a href="fpclos.f">fpclos.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpclos.f">fpclos.f plus dependencies</a>
+
+file	<a href="fpcoco.f">fpcoco.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpcoco.f">fpcoco.f plus dependencies</a>
+
+file	<a href="fpcons.f">fpcons.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpcons.f">fpcons.f plus dependencies</a>
+
+file	<a href="fpcosp.f">fpcosp.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpcosp.f">fpcosp.f plus dependencies</a>
+
+file	<a href="fpcsin.f">fpcsin.f</a>
+
+file	<a href="fpcurf.f">fpcurf.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpcurf.f">fpcurf.f plus dependencies</a>
+
+file	<a href="fpcuro.f">fpcuro.f</a>
+
+file	<a href="fpcyt1.f">fpcyt1.f</a>
+
+file	<a href="fpcyt2.f">fpcyt2.f</a>
+
+file	<a href="fpdeno.f">fpdeno.f</a>
+
+file	<a href="fpdisc.f">fpdisc.f</a>
+
+file	<a href="fpfrno.f">fpfrno.f</a>
+
+file	<a href="fpgivs.f">fpgivs.f</a>
+
+file	<a href="fpgrdi.f">fpgrdi.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpgrdi.f">fpgrdi.f plus dependencies</a>
+
+file	<a href="fpgrpa.f">fpgrpa.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpgrpa.f">fpgrpa.f plus dependencies</a>
+
+file	<a href="fpgrre.f">fpgrre.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpgrre.f">fpgrre.f plus dependencies</a>
+
+file	<a href="fpgrsp.f">fpgrsp.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpgrsp.f">fpgrsp.f plus dependencies</a>
+
+file	<a href="fpinst.f">fpinst.f</a>
+
+file	<a href="fpintb.f">fpintb.f</a>
+
+file	<a href="fpknot.f">fpknot.f</a>
+
+file	<a href="fpopdi.f">fpopdi.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpopdi.f">fpopdi.f plus dependencies</a>
+
+file	<a href="fpopsp.f">fpopsp.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpopsp.f">fpopsp.f plus dependencies</a>
+
+file	<a href="fporde.f">fporde.f</a>
+
+file	<a href="fppara.f">fppara.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fppara.f">fppara.f plus dependencies</a>
+
+file	<a href="fppasu.f">fppasu.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fppasu.f">fppasu.f plus dependencies</a>
+
+file	<a href="fpperi.f">fpperi.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpperi.f">fpperi.f plus dependencies</a>
+
+file	<a href="fppocu.f">fppocu.f</a>
+
+file	<a href="fppogr.f">fppogr.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fppogr.f">fppogr.f plus dependencies</a>
+
+file	<a href="fppola.f">fppola.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fppola.f">fppola.f plus dependencies</a>
+
+file	<a href="fprank.f">fprank.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fprank.f">fprank.f plus dependencies</a>
+
+file	<a href="fprati.f">fprati.f</a>
+
+file	<a href="fpregr.f">fpregr.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpregr.f">fpregr.f plus dependencies</a>
+
+file	<a href="fprota.f">fprota.f</a>
+
+file	<a href="fprppo.f">fprppo.f</a>
+
+file	<a href="fprpsp.f">fprpsp.f</a>
+
+file	<a href="fpseno.f">fpseno.f</a>
+
+file	<a href="fpspgr.f">fpspgr.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpspgr.f">fpspgr.f plus dependencies</a>
+
+file	<a href="fpsphe.f">fpsphe.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpsphe.f">fpsphe.f plus dependencies</a>
+
+file	<a href="fpsuev.f">fpsuev.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpsuev.f">fpsuev.f plus dependencies</a>
+
+file	<a href="fpsurf.f">fpsurf.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fpsurf.f">fpsurf.f plus dependencies</a>
+
+file	<a href="fpsysy.f">fpsysy.f</a>
+
+file	<a href="fptrnp.f">fptrnp.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fptrnp.f">fptrnp.f plus dependencies</a>
+
+file	<a href="fptrpe.f">fptrpe.f</a>  <a href="/cgi-bin/netlibfiles.pl?filename=/dierckx/fptrpe.f">fptrpe.f plus dependencies</a>
+
+file	<a href="readme">readme</a>
+
+</pre>
+</body>
+</html>

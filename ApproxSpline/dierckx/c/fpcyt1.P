@@ -1,0 +1,1 @@
+extern int fpcyt1_(doublereal *a, integer *n, integer *nn);

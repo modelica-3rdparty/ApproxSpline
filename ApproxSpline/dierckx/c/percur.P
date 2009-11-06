@@ -1,0 +1,3 @@
+extern int percur_(integer *iopt, integer *m, doublereal *x, doublereal *y, doublereal *w, integer *k, doublereal *s, integer *nest, integer *n, doublereal *t, doublereal *c__, doublereal *fp, doublereal *wrk, integer *lwrk, integer *iwrk, integer *ier);
+/*:ref: fpchep_ 14 6 7 4 7 4 4 4 */
+/*:ref: fpperi_ 14 26 4 7 7 7 4 4 7 4 7 4 4 4 4 7 7 7 7 7 7 7 7 7 7 7 4 4 */

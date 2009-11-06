@@ -1,0 +1,3 @@
+extern int fprank_(doublereal *a, doublereal *f, integer *n, integer *m, integer *na, doublereal *tol, doublereal *c__, doublereal *sq, integer *rank, doublereal *aa, doublereal *ff, doublereal *h__);
+/*:ref: fpgivs_ 14 4 7 7 7 7 */
+/*:ref: fprota_ 14 4 7 7 7 7 */

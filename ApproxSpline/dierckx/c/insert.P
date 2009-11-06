@@ -1,0 +1,2 @@
+extern int insert_(integer *iopt, doublereal *t, integer *n, doublereal *c__, integer *k, doublereal *x, doublereal *tt, integer *nn, doublereal *cc, integer *nest, integer *ier);
+/*:ref: fpinst_ 14 11 4 7 4 7 4 7 4 7 4 7 4 */

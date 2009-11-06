@@ -1,0 +1,2 @@
+extern int spalde_(doublereal *t, integer *n, doublereal *c__, integer *k1, doublereal *x, doublereal *d__, integer *ier);
+/*:ref: fpader_ 14 7 7 4 7 4 7 4 7 */

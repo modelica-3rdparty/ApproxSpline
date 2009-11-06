@@ -1,0 +1,8 @@
+extern int fpclos_(integer *iopt, integer *idim, integer *m, doublereal *u, integer *mx, doublereal *x, doublereal *w, integer *k, doublereal *s, integer *nest, doublereal *tol, integer *maxit, integer *k1, integer *k2, integer *n, doublereal *t, integer *nc, doublereal *c__, doublereal *fp, doublereal *fpint, doublereal *z__, doublereal *a1, doublereal *a2, doublereal *b, doublereal *g1, doublereal *g2, doublereal *q, integer *nrdata, integer *ier);
+/*:ref: fpgivs_ 14 4 7 7 7 7 */
+/*:ref: fprota_ 14 4 7 7 7 7 */
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */
+/*:ref: fpbacp_ 14 8 7 7 7 4 4 7 4 4 */
+/*:ref: fpknot_ 14 9 7 4 7 4 7 4 4 4 4 */
+/*:ref: fpdisc_ 14 5 7 4 4 7 4 */
+/*:ref: fprati_ 7 6 7 7 7 7 7 7 */

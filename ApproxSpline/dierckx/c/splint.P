@@ -1,0 +1,2 @@
+extern doublereal splint_(doublereal *t, integer *n, doublereal *c__, integer *k, doublereal *a, doublereal *b, doublereal *wrk);
+/*:ref: fpintb_ 14 6 7 4 7 4 7 7 */

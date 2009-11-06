@@ -1,0 +1,2 @@
+extern int sphere_(integer *iopt, integer *m, doublereal *teta, doublereal *phi, doublereal *r__, doublereal *w, doublereal *s, integer *ntest, integer *npest, doublereal *eps, integer *nt, doublereal *tt, integer *np, doublereal *tp, doublereal *c__, doublereal *fp, doublereal *wrk1, integer *lwrk1, doublereal *wrk2, integer *lwrk2, integer *iwrk, integer *kwrk, integer *ier);
+/*:ref: fpsphe_ 14 44 4 4 7 7 7 7 7 4 4 7 7 4 4 4 4 4 4 4 4 7 4 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 4 4 7 4 4 */

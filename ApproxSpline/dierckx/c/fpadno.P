@@ -1,0 +1,2 @@
+extern int fpadno_(integer *maxtr, integer *up, integer *left, integer *right, integer *info, integer *count, integer *merk, integer *jbind, integer *n1, integer *ier);
+/*:ref: fpfrno_ 14 10 4 4 4 4 4 4 4 4 4 4 */

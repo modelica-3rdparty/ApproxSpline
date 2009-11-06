@@ -1,0 +1,9 @@
+extern int fpgrsp_(integer *ifsu, integer *ifsv, integer *ifbu, integer *ifbv, integer *iback, doublereal *u, integer *mu, doublereal *v, integer *mv, doublereal *r__, integer *mr, doublereal *dr, integer *iop0, integer *iop1, doublereal *tu, integer *nu, doublereal *tv, integer *nv, doublereal *p, doublereal *c__, integer *nc, doublereal *sq, doublereal *fp, doublereal *fpu, doublereal *fpv, integer *mm, integer *mvnu, doublereal *spu, doublereal *spv, doublereal *right, doublereal *q, doublereal *au, doublereal *av1, doublereal *av2, doublereal *bu, doublereal *bv, doublereal *a0, doublereal *a1, doublereal *b0, doublereal *b1, doublereal *c0, doublereal *c1, doublereal *cosi, integer *nru, integer *nrv);
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */
+/*:ref: fpcyt1_ 14 3 7 4 4 */
+/*:ref: fpcyt2_ 14 5 7 4 7 7 4 */
+/*:ref: fpdisc_ 14 5 7 4 4 7 4 */
+/*:ref: fpgivs_ 14 4 7 7 7 7 */
+/*:ref: fprota_ 14 4 7 7 7 7 */
+/*:ref: fpbacp_ 14 8 7 7 7 4 4 7 4 4 */
+/*:ref: fpback_ 14 6 7 7 4 4 7 4 */

@@ -1,0 +1,2 @@
+extern int fpbisp_(doublereal *tx, integer *nx, doublereal *ty, integer *ny, doublereal *c__, integer *kx, integer *ky, doublereal *x, integer *mx, doublereal *y, integer *my, doublereal *z__, doublereal *wx, doublereal *wy, integer *lx, integer *ly);
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */

@@ -1,0 +1,4 @@
+extern int spgrid_(integer *iopt, integer *ider, integer *mu, doublereal *u, integer *mv, doublereal *v, doublereal *r__, doublereal *r0, doublereal *r1, doublereal *s, integer *nuest, integer *nvest, integer *nu, doublereal *tu, integer *nv, doublereal *tv, doublereal *c__, doublereal *fp, doublereal *wrk, integer *lwrk, integer *iwrk, integer *kwrk, integer *ier);
+/*:ref: fpchec_ 14 6 7 4 7 4 4 4 */
+/*:ref: fpchep_ 14 6 7 4 7 4 4 4 */
+/*:ref: fpspgr_ 14 42 4 4 7 4 7 4 7 4 7 7 7 4 4 7 4 4 4 7 4 7 7 7 7 7 7 7 7 7 7 7 4 4 4 4 4 4 4 4 4 7 4 4 */

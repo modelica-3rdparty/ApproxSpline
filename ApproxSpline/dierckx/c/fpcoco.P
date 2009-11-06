@@ -1,0 +1,2 @@
+extern int fpcoco_(integer *iopt, integer *m, doublereal *x, doublereal *y, doublereal *w, doublereal *v, doublereal *s, integer *nest, integer *maxtr, integer *maxbin, integer *n, doublereal *t, doublereal *c__, doublereal *sq, doublereal *sx, logical *bind, doublereal *e, doublereal *wrk, integer *lwrk, integer *iwrk, integer *kwrk, integer *ier);
+/*:ref: fpcosp_ 14 29 4 7 7 7 4 7 7 4 4 7 7 7 12 4 4 7 7 7 7 7 7 7 4 4 4 4 4 4 4 */

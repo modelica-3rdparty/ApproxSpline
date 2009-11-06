@@ -1,0 +1,3 @@
+extern int regrid_(integer *iopt, integer *mx, doublereal *x, integer *my, doublereal *y, doublereal *z__, doublereal *xb, doublereal *xe, doublereal *yb, doublereal *ye, integer *kx, integer *ky, doublereal *s, integer *nxest, integer *nyest, integer *nx, doublereal *tx, integer *ny, doublereal *ty, doublereal *c__, doublereal *fp, doublereal *wrk, integer *lwrk, integer *iwrk, integer *kwrk, integer *ier);
+/*:ref: fpchec_ 14 6 7 4 7 4 4 4 */
+/*:ref: fpregr_ 14 41 4 7 4 7 4 7 4 7 7 7 7 4 4 7 4 4 7 4 4 4 7 4 7 7 7 7 7 7 7 7 7 4 4 4 4 4 4 4 7 4 4 */

@@ -1,0 +1,2 @@
+extern int fpsuev_(integer *idim, doublereal *tu, integer *nu, doublereal *tv, integer *nv, doublereal *c__, doublereal *u, integer *mu, doublereal *v, integer *mv, doublereal *f, doublereal *wu, doublereal *wv, integer *lu, integer *lv);
+/*:ref: fpbspl_ 14 6 7 4 4 7 4 7 */

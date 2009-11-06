@@ -1,0 +1,2 @@
+extern int fpbfou_(doublereal *t, integer *n, doublereal *par, doublereal *ress, doublereal *resc);
+/*:ref: fpcsin_ 14 9 7 7 7 7 7 7 7 7 7 */

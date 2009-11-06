@@ -1,0 +1,1 @@
+extern int fppocu_(integer *idim, integer *k, doublereal *a, doublereal *b, integer *ib, doublereal *db, integer *nb, integer *ie, doublereal *de, integer *ne, doublereal *cp, integer *np);

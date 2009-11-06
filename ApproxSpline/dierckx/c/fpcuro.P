@@ -1,0 +1,1 @@
+extern int fpcuro_(doublereal *a, doublereal *b, doublereal *c__, doublereal *d__, doublereal *x, integer *n);
