@@ -1,12 +1,12 @@
 within ApproxSpline;
 package Plot "Utility functions for data visualization"
-
-  model plotDataSurf2d "create data structs to be potted in MATLAB"
+  extends Modelica.Icons.Package;
+  model plotDataSurf2d "create data structs to be plotted in MATLAB"
   /*
   to plot surface in MATLAB use this command:
- 
+
   load surf2d;figure;hold on;contour3(x,y,z);meshc(x,y,z);xlabel('X');ylabel('Y');hold on;plot3(xd,yd,zd,'*');grid on;view(-50,50);
- 
+
 */
 
     parameter Boolean rectangular =  false
@@ -25,11 +25,11 @@ package Plot "Utility functions for data visualization"
     parameter Real x_lim[2] = {
       if rectangular then  ApproxSpline.Utilities.vmin(data[2:size(data,1),1]) else  ApproxSpline.Utilities.vmin(data[:,1]),
       if rectangular then  ApproxSpline.Utilities.vmax(data[2:size(data,1),1]) else  ApproxSpline.Utilities.vmax(data[:,1])}
-      "X-dir boundaries of interpolation intervall";
+      "X-dir boundaries of interpolation interval";
     parameter Real y_lim[2] = {
       if rectangular then  ApproxSpline.Utilities.vmin(data[1,2:size(data,2)]) else  ApproxSpline.Utilities.vmin(data[:,2]),
       if rectangular then  ApproxSpline.Utilities.vmax(data[1,2:size(data,2)]) else  ApproxSpline.Utilities.vmax(data[:,2])}
-      "Y-dir boundaries of interpolation intervall";
+      "Y-dir boundaries of interpolation interval";
     parameter Real tx[:] = fill(0,0)
       "array of X-dir knot positions (if given together with ty, a least square spline is generated)";
     parameter Real ty[:] = fill(0,0)
@@ -92,23 +92,23 @@ package Plot "Utility functions for data visualization"
       nk[1,1] :=1.0*ApproxSpline.Surf2d.getNumberOfKnotsX(spl);
       nk[2,1] :=1.0*ApproxSpline.Surf2d.getNumberOfKnotsY(spl);
 
-      DataFiles.writeMATmatrix(filename, "data", data, false);
-      DataFiles.writeMATmatrix(filename, "x", x, true);
-      DataFiles.writeMATmatrix(filename, "y", y, true);
-      DataFiles.writeMATmatrix(filename, "z", z, true);
-      DataFiles.writeMATmatrix(filename, "xd", xd, true);
-      DataFiles.writeMATmatrix(filename, "yd", yd, true);
-      DataFiles.writeMATmatrix(filename, "zd", zd, true);
-      DataFiles.writeMATmatrix(filename, "nk", nk, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "data", data, false);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "x", x, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "y", y, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "z", z, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "xd", xd, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "yd", yd, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "zd", zd, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "nk", nk, true);
 
   end plotDataSurf2d;
 
-  model plotDataCurve1d "create data structs to be potted in MATLAB"
+  model plotDataCurve1d "create data structs to be plotted in MATLAB"
   /*
   to plot curve in MATLAB use this command:
- 
+
   load curve1d;plot(x,y);xlabel('X');ylabel('Y');hold all;plot(xd,yd,'*');hold off;grid on;
- 
+
 */
 
     parameter Integer n=20 "number of data points to plot";
@@ -122,7 +122,7 @@ package Plot "Utility functions for data visualization"
     parameter Boolean periodic = false
       "set true to generate periodic spline curve";
     parameter Real x_lim[2] = { ApproxSpline.Utilities.vmin(data[:,1]), ApproxSpline.Utilities.vmax(data[:,1])}
-      "boundaries of interpolation intervall";
+      "boundaries of interpolation interval";
     parameter Real t[:] = fill(0,0)
       "array of knot positions (if given, a least square spline is generated)";
 
@@ -151,12 +151,12 @@ package Plot "Utility functions for data visualization"
 
       nk[1,1] :=1.0*ApproxSpline.Curve1d.getNumberOfKnots(spl);
 
-      DataFiles.writeMATmatrix(filename, "data", data, false);
-      DataFiles.writeMATmatrix(filename, "x", x, true);
-      DataFiles.writeMATmatrix(filename, "y", y, true);
-      DataFiles.writeMATmatrix(filename, "xd", xd, true);
-      DataFiles.writeMATmatrix(filename, "yd", yd, true);
-      DataFiles.writeMATmatrix(filename, "nk", nk, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "data", data, false);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "x", x, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "y", y, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "xd", xd, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "yd", yd, true);
+      Modelica.Utilities.Streams.writeRealMatrix(filename, "nk", nk, true);
 
   end plotDataCurve1d;
 

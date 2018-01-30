@@ -1,7 +1,6 @@
-
 /*
 	wrapper functions needed in the Modelica interface
-	
+
 */
 
 #include <stdlib.h>
@@ -23,25 +22,23 @@
 #define MX_MAX 10
 #define MY_MAX 10
 
-/* index of row-wise stored 2-D zero-based array */ 
+/* index of row-wise stored 2-D zero-based array */
 #define IDXR(ir,ic,nr,nc) ((ir)*(nc)+(ic))
 
-/* index of column-wise stored 2-D zero-based array */ 
+/* index of column-wise stored 2-D zero-based array */
 #define IDXC(ir,ic,nr,nc) ((ic)*(nr)+(ir))
 
-/* Modelica style index of 2-D array (one-based) */ 
+/* Modelica style index of 2-D array (one-based) */
 #define IDXM(ir,ic,nc) (((ir)-1)*(nc)+((ic)-1))
-
 
 double mapPeriodic(double *x_lim, double x);
 int surf2dLengthOfWrk1(int nxest, int nyest, int kx, int ky, int m) ;
 int surf2dLengthOfWrk2(int nxest, int nyest, int kx, int ky, int m) ;
 
-
-typedef struct { /* 1-D spline structure */ 
+typedef struct { /* 1-D spline structure */
 	int k;		/* order of spline */
 	int n;		/* total number of knots of the spline approximation returned */
-	int nest;	/* over-estimate of the total number of knots  (length of arrays t,c and iwrk) */ 
+	int nest;	/* over-estimate of the total number of knots  (length of arrays t,c and iwrk) */
 	double fp;	/* weighted sum of squared residuals of the spline approximation */
 	double *t;	/* this array will contain the knots of the spline */
 	double *c;	/* this array will contain the coefficients c(1),c(2),..,c(n-k-1) in the b-spline representation of s(x) */
@@ -50,11 +47,10 @@ typedef struct { /* 1-D spline structure */
 	int isPeriodic; /* set true for periodic splines */
 } Curve1d;
 
-
-typedef struct { /* 2-D spline surface */ 
+typedef struct { /* 2-D spline surface */
 	int kx,ky;		/* order of spline */
 	int nx,ny;		/* total number of knots of the spline approximation returned */
-	int nxest,nyest;/* over-estimate of the total number of knots  (length of arrays t,c and iwrk) */ 
+	int nxest,nyest;/* over-estimate of the total number of knots  (length of arrays t,c and iwrk) */
 	double fp;	/* weighted sum of squared residuals of the spline approximation */
 	double *tx,*ty;	/* this arrays will contain the knots of the spline */
 	double *c;	/* this array will contain the coefficients c(1),c(2),..,c(n-k-1) in the b-spline representation of s(x) */
@@ -128,7 +124,7 @@ double standardDeviation(double *x, int n) {
 	}
 	return sqrt(sx2/(n - 1));
 }
-void transposeDouble(double *A, int nr, int nc) { 
+void transposeDouble(double *A, int nr, int nc) {
 	/* transpose array A of dimension [n x m] */
 	int ir,ic;
 	for (ir=0;ir<nr;ir++) {
@@ -170,7 +166,7 @@ void printDoubleVector(char *name, double *v, int n) {
 	for (i=0;i<n;i++) {
 		ModelicaFormatMessage("%f", v[i]);
 		ModelicaFormatMessage("%s", i<(n-1) ? " " : "}\n\n");
-	}	
+	}
 }
 
 void separateMdcArray(double *data, int nr, int nc, double *x, double *y, double *z) {
@@ -188,7 +184,6 @@ void separateMdcArray(double *data, int nr, int nc, double *x, double *y, double
 		}
 	}
 }
-
 
 int dblcmp(const void *p1, const void *p2) {
 	double *x1, *x2;
@@ -216,9 +211,9 @@ void *curve1dNonPeriodicNew(double *data, int m, int nc, double *x_lim, int k, d
 	w = (double *) calloc(m,sizeof(double));
 	if ((!x) || (!y) || (!w)) ModelicaError("Out of memory while allocating data arrays");
 
-	/* as data is ordered row-major and read-only, we have to copy the whole data into arrays */ 
+	/* as data is ordered row-major and read-only, we have to copy the whole data into arrays */
 	switch (nc) {
-		case 2: 
+		case 2:
 			qsort(data, m, 2*sizeof(double), dblcmp);
 			for(i=0;i<m;i++) {
 				x[i] = data[2*i];
@@ -265,7 +260,7 @@ void *curve1dNonPeriodicNew(double *data, int m, int nc, double *x_lim, int k, d
 		/* if knots are given, we generate a least square spline */
 		iopt = -1;
 		spl->n = n;
-		for (i=0;i<n;i++) 
+		for (i=0;i<n;i++)
 			spl->t[i] = t[i];
 	} else {
 		/* knots are not given, we generate a smoothing splines */
@@ -289,17 +284,16 @@ void *curve1dNonPeriodicNew(double *data, int m, int nc, double *x_lim, int k, d
 	/* the real thing: call the FORTRAN subroutine */
 core:
 	curfit_(&iopt, &m, x, y, w, x_lim, x_lim+1, &(spl->k), &s, &(spl->nest), &(spl->n),
-		spl->t, spl->c, &(spl->fp), wrk, &lwrk, iwrk, &ierr); 
-	
+		spl->t, spl->c, &(spl->fp), wrk, &lwrk, iwrk, &ierr);
+
 	if (ierr>0){
-		int i;	
+		int i;
 
 		if ((ierr<=3) && (s>0)) {
 			s = 2*s;
 			ModelicaFormatMessage("\n\ncurfit: s probably too small, trying s=%f\n", s);
 			goto core;
 		}
-
 
 		ModelicaFormatMessage("\n\ncurfit: iopt=%d\n", iopt);
 		if ((iopt==-1) && (n<2*k+2) || (n>min(spl->nest,m+k+1))) {
@@ -330,13 +324,13 @@ core:
 			ModelicaFormatMessage("\t x[i]<x[i+1] : %s\n", (s==0) ? "OK" : "FAIL");
 			ModelicaFormatMessage("\t lwrk>=(k+1)*m+nest*(7+3*k) : %s\n",
 				lwrk>=((k+1)*m+spl->nest*(7+3*k)) ? "OK" : "FAIL");
-			if (iopt==-1) 
+			if (iopt==-1)
 				ModelicaFormatMessage("\t 2*k+2<=n<=min(nest,m+k+1) : %s\n",
 					((2*k+2) <= n) && (n <= min(spl->nest,m+k+1)) ?  "OK" : "FAIL");
 		}
 		fflush(NULL);
 		ModelicaFormatError("\n core routine 'curfit' returns err: ier=%d \n", ierr);
-	} 
+	}
 
 	free(x);
 	free(y);
@@ -360,7 +354,7 @@ void *curve1dPeriodicNew(double *data, int m, int nc, int k, double s, double *t
 	w = (double *) calloc(m,sizeof(double));
 	if ((!x) || (!y) || (!w)) ModelicaError("Out of memory while allocating data arrays");
 
-	/* as data is ordered row-major and read-only, we have to copy the whole data into arrays */ 
+	/* as data is ordered row-major and read-only, we have to copy the whole data into arrays */
 	switch (nc) {
 		case 2:
 			qsort(data, m, 2*sizeof(double), dblcmp);
@@ -409,7 +403,7 @@ void *curve1dPeriodicNew(double *data, int m, int nc, int k, double s, double *t
 		/* if knots are given, we generate a least square spline */
 		iopt = -1;
 		spl->n = n;
-		for (i=0;i<n;i++) 
+		for (i=0;i<n;i++)
 			spl->t[i] = t[i];
 	} else {
 		/* knots are not given, we generate a smoothing splines */
@@ -431,12 +425,12 @@ void *curve1dPeriodicNew(double *data, int m, int nc, int k, double s, double *t
 	if (!spl->wrk) ModelicaError("Out of memory while allocating work array for splder");
 
 	/* the real thing: call the FORTRAN subroutine */
-core:	
+core:
 	percur_(&iopt, &m, x, y, w, &k, &s, &(spl->nest), &(spl->n),
-		spl->t, spl->c, &(spl->fp), wrk, &(lwrk), iwrk, &ierr); 
+		spl->t, spl->c, &(spl->fp), wrk, &(lwrk), iwrk, &ierr);
 
 	if (ierr>0){
-		int i;		
+		int i;
 
 		if ((ierr<=3) && (s>0)) {
 			s = 2*s;
@@ -472,14 +466,14 @@ core:
 			ModelicaFormatMessage("\t x[i]<x[i+1] : %s\n", (s==0) ? "OK" : "FAIL");
 			ModelicaFormatMessage("\t lwrk>=(k+1)*m+nest*(7+3*k) : %s\n",
 				lwrk>=((k+1)*m+spl->nest*(7+3*k)) ? "OK" : "FAIL");
-			if (iopt==-1) 
+			if (iopt==-1)
 				ModelicaFormatMessage("\t 2*k+2<=n<=min(nest,m+k+1) : %s\n",
 					((2*k+2) <= n) && (n <= min(spl->nest,m+k+1)) ?  "OK" : "FAIL");
 		}
 
 		fflush(NULL);
 		ModelicaFormatError("\n core routine 'percur' returns err: ier=%d \n", ierr);
-	} 
+	}
 
 	free(x);
 	free(y);
@@ -490,7 +484,6 @@ core:
 	return (void *) spl;
 
 }
-
 
 void *curve1dNew(int isPeriodic, double *data, int m, int nc, double *x_lim, int k, double s, double *t, int n) {
 	if (isPeriodic) {
@@ -515,12 +508,10 @@ void curve1dDel(void *obj) {
 	return;
 }
 
-
 int curve1dGetNumberOfKnots(void *obj) {
 	Curve1d *spl = (Curve1d *) obj;
 	return (int) spl->n;
 }
-
 
 double curve1dEval(void *obj, double x) {
 	Curve1d *spl = (Curve1d *) obj;
@@ -537,7 +528,7 @@ double curve1dEval(void *obj, double x) {
 
 	splev_(spl->t, &(spl->n), spl->c, &(spl->k), &xx, &y, &m, &ierr);
 
-	if (ierr!=0) 
+	if (ierr!=0)
 		ModelicaFormatError("\n\nsplev returns err: ierr=%d \n", ierr);
 
 	return y;
@@ -559,17 +550,15 @@ double curve1dDer(void *obj, double x, double ddx) {
 
 	splder_(spl->t, &(spl->n), spl->c, &(spl->k), &nu, &xx, &y, &m, spl->wrk, &ierr);
 
-	if (ierr!=0) 
+	if (ierr!=0)
 		ModelicaFormatError("\n\nsplev returns err: ierr=%d \n", ierr);
 
 	return ddx*y;
 }
 
-
-
 double curve1dPeriodicEval(void *obj, double x) {
 	/**
-	DO NOT USE THIS ANY MORE USE curve1dEval instead 
+	DO NOT USE THIS ANY MORE USE curve1dEval instead
 	**/
 
 	Curve1d *spl = (Curve1d *) obj;
@@ -582,7 +571,7 @@ double curve1dPeriodicEval(void *obj, double x) {
 
 	splev_(spl->t, &(spl->n), spl->c, &(spl->k), &xx, &y, &m, &ierr);
 
-	if (ierr!=0) 
+	if (ierr!=0)
 		ModelicaFormatError("\n\nsplev returns err: ierr=%d \n", ierr);
 
 	return y;
@@ -590,7 +579,7 @@ double curve1dPeriodicEval(void *obj, double x) {
 
 double curve1dPeriodicDer(void *obj, double x, double ddx) {
 	/**
-	DO NOT USE THIS ANY MORE USE curve1dEval instead 
+	DO NOT USE THIS ANY MORE USE curve1dEval instead
 	**/
 
 	Curve1d *spl = (Curve1d *) obj;
@@ -604,7 +593,7 @@ double curve1dPeriodicDer(void *obj, double x, double ddx) {
 
 	splder_(spl->t, &(spl->n), spl->c, &(spl->k), &nu, &xx, &y, &m, spl->wrk, &ierr);
 
-	if (ierr!=0) 
+	if (ierr!=0)
 		ModelicaFormatError("\n\nsplev returns err: ierr=%d \n", ierr);
 
 	return ddx*y;
@@ -615,13 +604,11 @@ double mapPeriodic(double *x_lim, double x) {
 		x = fmod(x - x_lim[0], x_lim[1] - x_lim[0]) + x_lim[0];
 	} else if(x<x_lim[0]) {
 		x = -fmod(x_lim[1] - x, x_lim[1] - x_lim[0]) + x_lim[1];
-	} 
+	}
 	return x;
 }
 
-
-
-void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim, 
+void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 					int kx, int ky, double s, double *tx, double *ty, int nx, int ny) {
 
 	Surf2d *surf;
@@ -636,9 +623,9 @@ void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 	w = (double *) calloc(m,sizeof(double));
 	if ((!x) || (!y) || (!z) || (!w)) ModelicaError("Out of memory while allocating data arrays");
 
-	/* as data is ordered row-major and read-only, we have to copy the whole data into arrays */ 
+	/* as data is ordered row-major and read-only, we have to copy the whole data into arrays */
 	switch (nc) {
-		case 3: 
+		case 3:
 			for(i=0;i<m;i++) {
 				x[i] = data[3*i];
 				y[i] = data[3*i + 1];
@@ -670,18 +657,17 @@ void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 	surf->nxest = kx+1+(int)(ceil(sqrt(m/2)));
 	surf->nyest = ky+1+(int)(ceil(sqrt(m/2))) ;
 	nmax = max(surf->nxest, surf->nyest);
-    
+
 	/* calculate local working array sizes */
 	lwrk1 = surf2dLengthOfWrk1(surf->nxest, surf->nyest, kx, ky, m) ;
 	lwrk2 = surf2dLengthOfWrk2(surf->nxest, surf->nyest, kx, ky, m) ;
 	kwrk  = m+(surf->nxest - 2*kx - 1)*(surf->nyest - 2*ky - 1);
 
-
 	/* allocate result arrays */
 	surf->c  = (double *) calloc((surf->nxest - kx - 1)*(surf->nyest - ky - 1),sizeof(double));
 	surf->tx = (double *) calloc(nmax,sizeof(double));
 	surf->ty = (double *) calloc(nmax,sizeof(double));
-	if ((!surf->c) || (!surf->tx) || (!surf->ty)) 
+	if ((!surf->c) || (!surf->tx) || (!surf->ty))
 		ModelicaError("Out of memory while allocating result arrays");
 
 	if(nx*ny>0){
@@ -708,15 +694,14 @@ void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 	wrk1 = (double *) calloc(lwrk1,sizeof(double));
 	wrk2 = (double *) calloc(lwrk2,sizeof(double));
 	iwrk = (int *)   calloc(kwrk,sizeof(int));
-	if ((!wrk1) || (!wrk2) || (!iwrk)) 
-		ModelicaFormatError("Out of memory while allocating work arrays: lwrk1=%d  lwrk2=%d  kwrk=%d", 
+	if ((!wrk1) || (!wrk2) || (!iwrk))
+		ModelicaFormatError("Out of memory while allocating work arrays: lwrk1=%d  lwrk2=%d  kwrk=%d",
 			lwrk1, lwrk2, kwrk);
 
-
 	/* the real thing: call the FORTRAN subroutine */
-	surfit_(&iopt, &m, x, y, z, w, x_lim, x_lim+1, y_lim, y_lim+1, &(surf->kx), &(surf->ky), 
-		&s, &(surf->nxest), &(surf->nyest), &nmax, &eps, &(surf->nx), surf->tx, &(surf->ny), 
-		surf->ty, surf->c, &(surf->fp), wrk1, &(lwrk1), wrk2, &(lwrk2), 
+	surfit_(&iopt, &m, x, y, z, w, x_lim, x_lim+1, y_lim, y_lim+1, &(surf->kx), &(surf->ky),
+		&s, &(surf->nxest), &(surf->nyest), &nmax, &eps, &(surf->nx), surf->tx, &(surf->ny),
+		surf->ty, surf->c, &(surf->fp), wrk1, &(lwrk1), wrk2, &(lwrk2),
 		iwrk, &(kwrk), &ierr);
 
 	if (ierr<-2) {
@@ -734,7 +719,7 @@ void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 		ModelicaFormatMessage("\n\nsurfit: a theoretically impossible result was found during the iteration.\n"
 			"Weighted sum of squared residuals does not satisfy the condition abs(fp-s)/s < 0.001: s=%f, fp=%f\n",
 			s, surf->fp);
-	
+
 	}
 
 	if (ierr==3) {
@@ -785,7 +770,7 @@ void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 		for (s1=i=0;i<(m-1);i++) { if (y[i] >= y[i+1])	s1 = 1; }
 		ModelicaFormatMessage("\t y[i]<y[i+1] : %s\n", (s1==0) ? "OK" : "FAIL");
 		ModelicaFormatError("core routine 'surfit' returned err: ier=%d \n", ierr);
-	} 
+	}
 
 	if (ierr>10) {
 		ModelicaFormatError("\n\nsurfit: internal error: lwrk2 too small: lwrk2%d \n", lwrk2);
@@ -806,14 +791,14 @@ void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 	/* allocate persistence working arrays for derivative calculation*/
 	surf->wrk = (double *) calloc(surf->lwrk,sizeof(double));
 	surf->iwrk = (int *)   calloc(surf->kwrk,sizeof(int));
-	if ((!surf->wrk) || (!surf->iwrk)) 
-		ModelicaFormatError("Out of memory while allocating persistence work arrays: lwrk=%d  kwrk=%d", 
+	if ((!surf->wrk) || (!surf->iwrk))
+		ModelicaFormatError("Out of memory while allocating persistence work arrays: lwrk=%d  kwrk=%d",
 			surf->lwrk, surf->kwrk);
 
 	return (void *) surf;
 
 }
-void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim, 
+void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 					int kx, int ky, double s, double *tx, double *ty, int nx, int ny) {
 
 	Surf2d *surf;
@@ -830,7 +815,7 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 	z = (double *) calloc(mx*my,sizeof(double));
 	if ((!x) || (!y) || (!z)) ModelicaError("Out of memory while allocating data arrays");
 
-	/* as data is ordered row-major and read-only, we have to copy the whole data into arrays */ 
+	/* as data is ordered row-major and read-only, we have to copy the whole data into arrays */
 	separateMdcArray(data, mx, my, x, y, z);
 
 	/* allocate curve1d structure */
@@ -845,15 +830,12 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 	surf->nxest = mx+kx+1;
 	surf->nyest = my+ky+1;
 	nmax = max(surf->nxest, surf->nyest);
-    
-    
-
 
 	/* allocate result arrays */
 	surf->c  = (double *) calloc((surf->nxest - kx - 1)*(surf->nyest - ky - 1),sizeof(double));
 	surf->tx = (double *) calloc(nmax,sizeof(double));
 	surf->ty = (double *) calloc(nmax,sizeof(double));
-	if ((!surf->c) || (!surf->tx) || (!surf->ty)) 
+	if ((!surf->c) || (!surf->tx) || (!surf->ty))
 		ModelicaError("Out of memory while allocating result arrays");
 
 	if(nx*ny>0){
@@ -877,23 +859,22 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 	surf->y_lim[1] = y_lim[1];
 
 	/* calculate temporary working array sizes */
-	lwrk = 4 + surf->nxest*(my + 2*kx + 5) + surf->nyest*(2*ky + 5) + 
+	lwrk = 4 + surf->nxest*(my + 2*kx + 5) + surf->nyest*(2*ky + 5) +
 		mx*(kx + 1) + my*(ky + 1) + max(my, surf->nxest);
 	kwrk  = 3 + mx + my + surf->nxest + surf->nyest;
 
 	/* allocate working arrays */
 	wrk = (double *) calloc(lwrk,sizeof(double));
 	iwrk = (int *)   calloc(kwrk,sizeof(int));
-	if ((!wrk) || (!iwrk)) 
-		ModelicaFormatError("Out of memory while allocating work arrays: lwrk=%d  kwrk=%d", 
+	if ((!wrk) || (!iwrk))
+		ModelicaFormatError("Out of memory while allocating work arrays: lwrk=%d  kwrk=%d",
 			lwrk, kwrk);
 
 	/* the real thing: call the FORTRAN subroutine */
-	regrid_(&iopt, &mx, x, &my, y, z, x_lim, x_lim+1, y_lim, y_lim+1, &(surf->kx), &(surf->ky), 
-		&s, &(surf->nxest), &(surf->nyest), &(surf->nx), surf->tx, &(surf->ny), 
-		surf->ty, surf->c, &(surf->fp), wrk, &(lwrk),  
+	regrid_(&iopt, &mx, x, &my, y, z, x_lim, x_lim+1, y_lim, y_lim+1, &(surf->kx), &(surf->ky),
+		&s, &(surf->nxest), &(surf->nyest), &(surf->nx), surf->tx, &(surf->ny),
+		surf->ty, surf->c, &(surf->fp), wrk, &(lwrk),
 		iwrk, &(kwrk), &ierr);
-
 
 	if (ierr==1) {
 		ModelicaFormatMessage("\n\nregrid: approximation returned is the weighted least-squares sline according to the current set of knots.\n"
@@ -905,7 +886,7 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 		ModelicaFormatMessage("\n\nregrid: a theoretically impossible result was found during the iteration.\n"
 			"Weighted sum of squared residuals does not satisfy the condition abs(fp-s)/s < 0.001: s=%f, fp=%f\n",
 			s, surf->fp);
-	
+
 	}
 
 	if (ierr==3) {
@@ -923,17 +904,17 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 		ModelicaFormatMessage("regrid: nxest=%d  nyest=%d\n", surf->nxest, surf->nyest);
 		ModelicaFormatMessage("regrid: fp=%f\n", surf->fp);
 		ModelicaFormatMessage("%s","x={");
-		for (i=0;i<mx;i++) 
+		for (i=0;i<mx;i++)
 			ModelicaFormatMessage(" %f", x[i]);
 		ModelicaFormatMessage("%s"," }\n");
 		ModelicaFormatMessage("%s","y={");
-		for (i=0;i<my;i++) 
+		for (i=0;i<my;i++)
 			ModelicaFormatMessage(" %f", y[i]);
 		ModelicaFormatMessage("%s"," }\n");
 		ModelicaFormatMessage("%s","z={\n");
 		for (i=0;i<mx;i++) {
 			ModelicaFormatMessage("%s","{");
-			for (j=0;j<my;j++) { 
+			for (j=0;j<my;j++) {
 				ModelicaFormatMessage(" %f", z[IDXC(i,j,mx,my)]);
 			}
 			ModelicaFormatMessage("%s"," }\n");
@@ -948,9 +929,9 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 		ModelicaFormatMessage("\t my>=ky : %s\n", (my>ky) ? "OK" : "FAIL");
 		ModelicaFormatMessage("\t nxest>=2*kx+2 : %s\n", (surf->nxest>=2*kx+2) ? "OK" : "FAIL");
 		ModelicaFormatMessage("\t nyest>=2*ky+2 : %s\n", (surf->nyest>=2*ky+2) ? "OK" : "FAIL");
-		ModelicaFormatMessage("\t kwrk>=3+mx+my+nxest+nyest : %s\n", 
+		ModelicaFormatMessage("\t kwrk>=3+mx+my+nxest+nyest : %s\n",
 			(kwrk>=3+mx+my+surf->nxest+surf->nyest) ? "OK" : "FAIL");
-		ModelicaFormatMessage("\t lwrk>=4+nxest*(my+2*kx+5)+nyest*(2*ky+5)+mx*(kx+1)+my*(ky+1)+max(my,nxest) : %s\n", 
+		ModelicaFormatMessage("\t lwrk>=4+nxest*(my+2*kx+5)+nyest*(2*ky+5)+mx*(kx+1)+my*(ky+1)+max(my,nxest) : %s\n",
 			(lwrk>=4+surf->nxest*(my+2*kx+5)+surf->nyest*(2*ky+5)+mx*(kx+1)+my*(ky+1)+max(my,surf->nxest)) ? "OK" : "FAIL");
 		ModelicaFormatMessage("\t x_lim[1]<=x[1] : %s\n", (x_lim[0]<=x[0]) ? "OK" : "FAIL");
 		ModelicaFormatMessage("\t x_lim[2]>=x[mx] : %s\n", (x_lim[1]>=x[mx-1]) ? "OK" : "FAIL");
@@ -963,12 +944,12 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 		ModelicaFormatError("core routine 'regrid' returned err: ier=%d \n", ierr);
 
 		if (iopt==-1) {
-			ModelicaFormatMessage("\t 2*kx+2<=nx : %s", 
+			ModelicaFormatMessage("\t 2*kx+2<=nx : %s",
 				(2*kx+2)<=surf->nx ? "OK" : "FAIL");
-			ModelicaFormatMessage("\t nx<=min(nxest,mx+kx+1) : %s", 
+			ModelicaFormatMessage("\t nx<=min(nxest,mx+kx+1) : %s",
 				surf->nx<=min(surf->nxest,mx+kx+1) ? "OK" : "FAIL");
 		}
-	} 
+	}
 
 	free(x);
 	free(y);
@@ -983,16 +964,13 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 	/* allocate persistence working arrays for derivative calculation*/
 	surf->wrk = (double *) calloc(surf->lwrk,sizeof(double));
 	surf->iwrk = (int *)   calloc(surf->kwrk,sizeof(int));
-	if ((!surf->wrk) || (!surf->iwrk)) 
-		ModelicaFormatError("Out of memory while allocating persistence work arrays: lwrk=%d  kwrk=%d", 
+	if ((!surf->wrk) || (!surf->iwrk))
+		ModelicaFormatError("Out of memory while allocating persistence work arrays: lwrk=%d  kwrk=%d",
 			surf->lwrk, surf->kwrk);
-
-
 
 	return (void *) surf;
 
 }
-
 
 void surf2dDel(void *obj) {
 	Surf2d *s = (Surf2d *) obj;
@@ -1010,16 +988,15 @@ void surf2dDel(void *obj) {
 	return;
 }
 
-
 int surf2dLengthOfWrk1(int nxest, int nyest, int kx, int ky, int m) {
 	int u,v,km,ne,bx,by,b1,b2;
-	u = nxest-kx-1; 
+	u = nxest-kx-1;
 	v = nyest-ky-1;
 	km = max(kx,ky)+1;
     ne = max(nxest,nyest);
 	bx = kx*v+ky+1;
 	by = ky*u+kx+1;
-	if(bx<=by) { 
+	if(bx<=by) {
 		b1 = bx;
 		b2 = b1+v-ky;
 	}
@@ -1032,13 +1009,13 @@ int surf2dLengthOfWrk1(int nxest, int nyest, int kx, int ky, int m) {
 
 int surf2dLengthOfWrk2(int nxest, int nyest, int kx, int ky, int m) {
 	int u,v,km,ne,bx,by,b1,b2;
-	u = nxest-kx-1; 
+	u = nxest-kx-1;
 	v = nyest-ky-1;
 	km = max(kx,ky)+1;
     ne = max(nxest,nyest);
 	bx = kx*v+ky+1;
 	by = ky*u+kx+1;
-	if(bx<=by) { 
+	if(bx<=by) {
 		b1 = bx;
 		b2 = b1+v-ky;
 	}
@@ -1056,15 +1033,14 @@ double surf2dEval(void *obj, double x, double y) {
 	int mx = 1;
 	int my = 1;
 
-	bispev_(s->tx, &(s->nx), s->ty, &(s->ny), s->c, &(s->kx), &(s->ky),&x, &mx, &y, &my, &z, 
+	bispev_(s->tx, &(s->nx), s->ty, &(s->ny), s->c, &(s->kx), &(s->ky),&x, &mx, &y, &my, &z,
 		s->wrk, &(s->lwrk), s->iwrk, &(s->kwrk), &ierr);
 
-	if (ierr!=0) 
+	if (ierr!=0)
 		ModelicaFormatError("\n\nsplev returns err: ierr=%d \n", ierr);
 
 	return z;
 }
-
 
 double surf2dDer(void *obj, double x, double y, double dx, double dy) {
 	Surf2d *s = (Surf2d *) obj;
@@ -1081,9 +1057,9 @@ double surf2dDer(void *obj, double x, double y, double dx, double dy) {
 	parder_(s->tx, &(s->nx), s->ty, &(s->ny), s->c, &(s->kx), &(s->ky), &nux, &nuy, &x, &mx,
 		&y, &my, &dzdy, s->wrk, &(s->lwrk), s->iwrk, &(s->kwrk), &ierr);
 
-	if (ierr!=0) 
+	if (ierr!=0)
 		ModelicaFormatError("\n\nparder returns err: ierr=%d \n", ierr);
-	
+
 	return dx*dzdx + dy*dzdy;
 }
 
@@ -1102,7 +1078,7 @@ int surf2dGetNumberOfKnotsY(void *obj) {
 	return s->ny;
 }
 
-void *surf2dNew(int isRect, double *data, int mx, int my, double *x_lim, double *y_lim, 
+void *surf2dNew(int isRect, double *data, int mx, int my, double *x_lim, double *y_lim,
 				int kx, int ky, double s, double *tx, double *ty, int nx, int ny) {
 					if (isRect) {
 						return surf2dRectNew(data, mx, my, x_lim, y_lim, kx, ky, s, tx, ty, nx, ny);

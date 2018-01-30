@@ -1,28 +1,32 @@
 within ApproxSpline;
 package Curve1d
-
+  extends Modelica.Icons.Package;
   function getNumberOfKnots
+    extends Modelica.Icons.Function;
     input ApproxSpline.Curve1d.Type s "1-D spline object to operate on";
     output Integer n "number of knots";
-    external "C" n=  curve1dGetNumberOfKnots(s) 
-      annotation(Library="mdc_dierckx");
-
+    external "C" n = curve1dGetNumberOfKnots(s)
+      annotation(Library="mdc_dierckx", __iti_dll="ITI_mdc_dierckx.dll", _iti_dllNoExport=true);
   end getNumberOfKnots;
 
   function eval
-    annotation(derivative = derivative);
+    extends Modelica.Icons.Function;
     input ApproxSpline.Curve1d.Type s "1-D spline object to operate on";
     input Real x "independent variable where spline is to be evaluated";
     output Real y "evaluated value ";
-    external "C" y=  curve1dEval(s, x);
+    external "C" y = curve1dEval(s, x)
+      annotation(Library="mdc_dierckx", __iti_dll="ITI_mdc_dierckx.dll", _iti_dllNoExport=true);
+    annotation(derivative = derivative);
   end eval;
 
   function derivative
+    extends Modelica.Icons.Function;
     input ApproxSpline.Curve1d.Type s "1-D spline object to operate on";
     input Real x "independent variable where spline is to be evaluated";
     input Real ddx "value of the partial derivative";
     output Real y "evaluated value ";
-    external "C" y=  curve1dDer(s, x, ddx);
+    external "C" y = curve1dDer(s, x, ddx)
+      annotation(Library="mdc_dierckx", __iti_dll="ITI_mdc_dierckx.dll", _iti_dllNoExport=true);
   end derivative;
 
 class Type "External class definition of a X-Y approximating spline curve"
@@ -30,30 +34,32 @@ class Type "External class definition of a X-Y approximating spline curve"
   extends Icons.External;
 
   function constructor "create a 1D-Spline object"
+    extends Modelica.Icons.Function;
     input Real data[:,:] "data to be fitted: [x,y,w] (w is optional weight)";
     input Real s(min=0) = 0 "smoothing factor (s>0)";
     input Integer k(min=1,max=5) = 3 "degree of spline (should be odd)";
     input Boolean periodic = false "set true to generate periodic spline curve";
     input Real x_lim[2] = { ApproxSpline.Utilities.vmin(data[:,1]), ApproxSpline.Utilities.vmax(data[:,1])}
-        "boundaries of interpolation intervall (ignored in case of periodic splines)";
+        "boundaries of interpolation interval (ignored in case of periodic splines)";
     input Real t[:] = fill(0,0)
         "array of knot positions (if given, a least square spline is generated)";
     output Type spl "1-D spline data structure";
-  external "C" spl=  curve1dNew(periodic, data, size(data,1), size(data,2), x_lim, k, s, t, size(t,1)) 
-    annotation(Library={"mdc_dierckx","f2c"});
+    external "C" spl = curve1dNew(periodic, data, size(data,1), size(data,2), x_lim, k, s, t, size(t,1))
+      annotation(Library="mdc_dierckx", __iti_dll="ITI_mdc_dierckx.dll", _iti_dllNoExport=true);
   end constructor;
 
   function destructor "remove a 1D-Spline object"
+    extends Modelica.Icons.Function;
     input Type spl "1-D spline data structure";
-  external "C" curve1dDel(spl) 
-    annotation(Library={"mdc_dierckx", "f2c"});
+    external "C" curve1dDel(spl)
+      annotation(Library="mdc_dierckx", __iti_dll="ITI_mdc_dierckx.dll", _iti_dllNoExport=true);
   end destructor;
 
     annotation (Documentation(info="
       subroutine curfit(iopt,m,x,y,w,xb,xe,k,s,nest,n,t,c,fp,
      * wrk,lwrk,iwrk,ier)
- 
- 
+
+
 c  given the set of data points (x(i),y(i)) and the set of positive
 c  numbers w(i),i=1,2,...,m,subroutine curfit determines a smooth spline
 c  approximation of degree k on the interval xb <= x <= xe.
@@ -120,7 +126,7 @@ c           if the computation mode iopt=1 is used this value of n
 c           should be left unchanged between subsequent calls.
 c           in case iopt=-1, the value of n must be specified on entry.
 c   t     : real array of dimension at least (nest).
-c           on succesful exit, this array will contain the knots of the
+c           on successful exit, this array will contain the knots of the
 c           spline,i.e. the position of the interior knots t(k+2),t(k+3)
 c           ...,t(n-k-1) as well as the position of the additional knots
 c           t(1)=t(2)=...=t(k+1)=xb and t(n-k)=...=t(n)=xe needed for
@@ -131,7 +137,7 @@ c           calls. if the computation mode iopt=-1 is used, the values
 c           t(k+2),...,t(n-k-1) must be supplied by the user, before
 c           entry. see also the restrictions (ier=10).
 c   c     : real array of dimension at least (nest).
-c           on succesful exit, this array will contain the coefficients
+c           on successful exit, this array will contain the coefficients
 c           c(1),c(2),..,c(n-k-1) in the b-spline representation of s(x)
 c   fp    : real. unless ier=10, fp contains the weighted sum of
 c           squared residuals of the spline approximation returned.
@@ -166,7 +172,7 @@ c             spline according to the knots t(1),t(2),...,t(n). (n=nest)
 c             the parameter fp gives the corresponding weighted sum of
 c             squared residuals (fp>s).
 c    ier=2  : error. a theoretically impossible result was found during
-c             the iteration proces for finding a smoothing spline with
+c             the iteration process for finding a smoothing spline with
 c             fp = s. probably causes : s too small.
 c             there is an approximation returned but the corresponding
 c             weighted sum of squared residuals does not satisfy the
@@ -260,8 +266,8 @@ c  creation date : may 1979
 c  latest update : march 1987
 c
 c  ..
- 
- 
+
+
 "));
 end Type;
 end Curve1d;

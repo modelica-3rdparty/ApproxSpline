@@ -1,0 +1,12 @@
+EXPORTS
+    curve1dGetNumberOfKnots
+    curve1dEval
+    curve1dDer
+    curve1dNew
+    curve1dDel
+    surf2dEval
+    surf2dDer
+    surf2dGetNumberOfKnotsX
+    surf2dGetNumberOfKnotsY
+    surf2dNew
+    surf2dDel

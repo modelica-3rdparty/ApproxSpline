@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Lib|Win32">
+      <Configuration>Release Lib</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release Lib|x64">
+      <Configuration>Release Lib</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\C-Sources\f2c.h" />
+    <ClInclude Include="..\..\C-Sources\modelica\ModelicaUtilities.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\C-Sources\dierckx\bispev.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\clocur.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\cocosp.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\concon.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\concur.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\cualde.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\curev.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\curfit.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\dblint.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\evapol.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fourco.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpader.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpadno.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpadpo.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpback.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpbacp.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpbfout.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpbisp.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpbspl.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpchec.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpched.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpchep.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpclos.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpcoco.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpcons.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpcosp.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpcsin.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpcurf.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpcuro.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release Lib|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release Lib|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\C-Sources\dierckx\fpcyt1.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpcyt2.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpdeno.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpdisc.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpfrno.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpgivs.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpgrdi.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpgrpa.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpgrre.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpgrsp.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpinst.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpintb.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpknot.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpopdi.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpopsp.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fporde.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fppara.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fppasu.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpperi.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fppocu.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fppogr.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fppola.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fprank.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fprati.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpregr.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fprota.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fprppo.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fprpsp.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpseno.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpspgr.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpsphe.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpsuev.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpsurf.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fpsysy.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fptrnp.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\fptrpe.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\insert.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\parcur.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\parder.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\parsur.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\percur.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\pogrid.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\polar.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\profil.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\regrid.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\spalde.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\spgrid.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\sphere.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\splder.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\splev.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\splint.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\sproot.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release Lib|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release Lib|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\C-Sources\dierckx\surev.c" />
+    <ClCompile Include="..\..\C-Sources\dierckx\surfit.c" />
+    <ClCompile Include="..\..\C-Sources\mdc_dierckx.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\C-Sources\dierckx\bispev.P" />
+    <None Include="..\..\C-Sources\dierckx\clocur.P" />
+    <None Include="..\..\C-Sources\dierckx\cocosp.P" />
+    <None Include="..\..\C-Sources\dierckx\concon.P" />
+    <None Include="..\..\C-Sources\dierckx\concur.P" />
+    <None Include="..\..\C-Sources\dierckx\cualde.P" />
+    <None Include="..\..\C-Sources\dierckx\curev.P" />
+    <None Include="..\..\C-Sources\dierckx\curfit.P" />
+    <None Include="..\..\C-Sources\dierckx\dblint.P" />
+    <None Include="..\..\C-Sources\dierckx\evapol.P" />
+    <None Include="..\..\C-Sources\dierckx\fourco.P" />
+    <None Include="..\..\C-Sources\dierckx\fpader.P" />
+    <None Include="..\..\C-Sources\dierckx\fpadno.P" />
+    <None Include="..\..\C-Sources\dierckx\fpadpo.P" />
+    <None Include="..\..\C-Sources\dierckx\fpback.P" />
+    <None Include="..\..\C-Sources\dierckx\fpbacp.P" />
+    <None Include="..\..\C-Sources\dierckx\fpbfout.P" />
+    <None Include="..\..\C-Sources\dierckx\fpbisp.P" />
+    <None Include="..\..\C-Sources\dierckx\fpbspl.P" />
+    <None Include="..\..\C-Sources\dierckx\fpchec.P" />
+    <None Include="..\..\C-Sources\dierckx\fpched.P" />
+    <None Include="..\..\C-Sources\dierckx\fpchep.P" />
+    <None Include="..\..\C-Sources\dierckx\fpclos.P" />
+    <None Include="..\..\C-Sources\dierckx\fpcoco.P" />
+    <None Include="..\..\C-Sources\dierckx\fpcons.P" />
+    <None Include="..\..\C-Sources\dierckx\fpcosp.P" />
+    <None Include="..\..\C-Sources\dierckx\fpcsin.P" />
+    <None Include="..\..\C-Sources\dierckx\fpcurf.P" />
+    <None Include="..\..\C-Sources\dierckx\fpcuro.P" />
+    <None Include="..\..\C-Sources\dierckx\fpcyt1.P" />
+    <None Include="..\..\C-Sources\dierckx\fpcyt2.P" />
+    <None Include="..\..\C-Sources\dierckx\fpdeno.P" />
+    <None Include="..\..\C-Sources\dierckx\fpdisc.P" />
+    <None Include="..\..\C-Sources\dierckx\fpfrno.P" />
+    <None Include="..\..\C-Sources\dierckx\fpgivs.P" />
+    <None Include="..\..\C-Sources\dierckx\fpgrdi.P" />
+    <None Include="..\..\C-Sources\dierckx\fpgrpa.P" />
+    <None Include="..\..\C-Sources\dierckx\fpgrre.P" />
+    <None Include="..\..\C-Sources\dierckx\fpgrsp.P" />
+    <None Include="..\..\C-Sources\dierckx\fpinst.P" />
+    <None Include="..\..\C-Sources\dierckx\fpintb.P" />
+    <None Include="..\..\C-Sources\dierckx\fpknot.P" />
+    <None Include="..\..\C-Sources\dierckx\fpopdi.P" />
+    <None Include="..\..\C-Sources\dierckx\fpopsp.P" />
+    <None Include="..\..\C-Sources\dierckx\fporde.P" />
+    <None Include="..\..\C-Sources\dierckx\fppara.P" />
+    <None Include="..\..\C-Sources\dierckx\fppasu.P" />
+    <None Include="..\..\C-Sources\dierckx\fpperi.P" />
+    <None Include="..\..\C-Sources\dierckx\fppocu.P" />
+    <None Include="..\..\C-Sources\dierckx\fppogr.P" />
+    <None Include="..\..\C-Sources\dierckx\fppola.P" />
+    <None Include="..\..\C-Sources\dierckx\fprank.P" />
+    <None Include="..\..\C-Sources\dierckx\fprati.P" />
+    <None Include="..\..\C-Sources\dierckx\fpregr.P" />
+    <None Include="..\..\C-Sources\dierckx\fprota.P" />
+    <None Include="..\..\C-Sources\dierckx\fprppo.P" />
+    <None Include="..\..\C-Sources\dierckx\fprpsp.P" />
+    <None Include="..\..\C-Sources\dierckx\fpseno.P" />
+    <None Include="..\..\C-Sources\dierckx\fpspgr.P" />
+    <None Include="..\..\C-Sources\dierckx\fpsphe.P" />
+    <None Include="..\..\C-Sources\dierckx\fpsuev.P" />
+    <None Include="..\..\C-Sources\dierckx\fpsurf.P" />
+    <None Include="..\..\C-Sources\dierckx\fpsysy.P" />
+    <None Include="..\..\C-Sources\dierckx\fptrnp.P" />
+    <None Include="..\..\C-Sources\dierckx\fptrpe.P" />
+    <None Include="..\..\C-Sources\dierckx\insert.P" />
+    <None Include="..\..\C-Sources\dierckx\parcur.P" />
+    <None Include="..\..\C-Sources\dierckx\parder.P" />
+    <None Include="..\..\C-Sources\dierckx\parsur.P" />
+    <None Include="..\..\C-Sources\dierckx\percur.P" />
+    <None Include="..\..\C-Sources\dierckx\pogrid.P" />
+    <None Include="..\..\C-Sources\dierckx\polar.P" />
+    <None Include="..\..\C-Sources\dierckx\profil.P" />
+    <None Include="..\..\C-Sources\dierckx\regrid.P" />
+    <None Include="..\..\C-Sources\dierckx\spalde.P" />
+    <None Include="..\..\C-Sources\dierckx\spgrid.P" />
+    <None Include="..\..\C-Sources\dierckx\sphere.P" />
+    <None Include="..\..\C-Sources\dierckx\splder.P" />
+    <None Include="..\..\C-Sources\dierckx\splev.P" />
+    <None Include="..\..\C-Sources\dierckx\splint.P" />
+    <None Include="..\..\C-Sources\dierckx\sproot.P" />
+    <None Include="..\..\C-Sources\dierckx\surev.P" />
+    <None Include="..\..\C-Sources\dierckx\surfit.P" />
+    <None Include="mdc_dierckx.def" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{117CC546-B0E2-4E21-8F2B-9962E202749F}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Lib|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Lib|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Lib|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Lib|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release Lib|Win32'">$(SolutionDir)..\..\Library\win32\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release Lib|x64'">$(SolutionDir)..\..\Library\win64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release Lib|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release Lib|Win32'">$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)..\..\Library\win64\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)..\..\Library\win64\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\..\Library\win32\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\..\Library\win32\</OutDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ITI_$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ITI_$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ITI_$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ITI_$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;HAVE_STDARG_H=1;HAVE_MEMCPY=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level3</WarningLevel>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <AdditionalIncludeDirectories>..\..\C-Sources;..\..\C-Sources\dierckx;..\..\C-Sources\modelica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>$(ProjectName).def</ModuleDefinitionFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\thirdParty\ITI\win32\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ModelicaExternalC.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)$(Configuration)\$(ProjectName).lib</ImportLibrary>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;HAVE_STDARG_H=1;HAVE_MEMCPY=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\..\C-Sources;..\..\C-Sources\dierckx;..\..\C-Sources\modelica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>$(ProjectName).def</ModuleDefinitionFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\thirdParty\ITI\win64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ModelicaExternalC.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName).lib</ImportLibrary>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;HAVE_STDARG_H=1;HAVE_MEMCPY=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <AdditionalIncludeDirectories>..\..\C-Sources;..\..\C-Sources\dierckx;..\..\C-Sources\modelica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\thirdParty\ITI\win32\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ModelicaExternalC.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)$(Configuration)\$(ProjectName).lib</ImportLibrary>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_DEBUG;HAVE_STDARG_H=1;HAVE_MEMCPY=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\..\C-Sources;..\..\C-Sources\dierckx;..\..\C-Sources\modelica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>$(ProjectName).def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\thirdParty\ITI\win64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ModelicaExternalC.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(SolutionDir)$(Platform)\$(Configuration)\$(ProjectName).lib</ImportLibrary>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Lib|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>NOT_TWEAK_COMPILER;WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;HAVE_STDARG_H=1;HAVE_MEMCPY=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\C-Sources;..\..\C-Sources\dierckx;..\..\C-Sources\modelica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib />
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Lib|x64'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NDEBUG;HAVE_STDARG_H=1;HAVE_MEMCPY=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\C-Sources;..\..\C-Sources\dierckx;..\..\C-Sources\modelica;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib />
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DLL Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,5 +1,6 @@
 within ApproxSpline;
-package Utilities "utility functions needed in the library"
+package Utilities "Utility functions needed in the library"
+  extends Modelica.Icons.UtilitiesPackage;
   function vmin "return minimum element of vector"
     extends Modelica.Icons.Function;
     input Real vec[:] "input vector";
