@@ -1,0 +1,59 @@
+language: c
+
+git:
+  depth: 5
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.8-multilib
+      - linux-libc-dev
+      - linux-libc-dev:i386
+
+matrix:
+  include:
+    - os: linux
+      compiler: gcc-4.8
+      env:
+        - PLATFORM=32
+    - os: linux
+      compiler: gcc-4.8
+      env:
+        - PLATFORM=64
+    - os: linux
+      compiler: clang
+      env:
+        - PLATFORM=64
+
+env:
+  global:
+    - DEPLOY_LIBS="libmdc_dierckx.a"
+    # BBPASS
+    - secure: "ihN/N64MASvtfTiFesaEB3pgeqTW2hbAwPGNH4yaM5lZz+nkJcF8F+6993q2o4JArhel9EEPqa923Zlwf0iwFjAObhku8IMmgMrx24K/DXrdyMPhtI+9MmwwmIm4XAGod5JEj3bhqLgL0qn6UXFif4Qzki1ZypeI8EMQU+kYuEGV6zzCFWjN1G0esrR76D8hkG7vpW41k45HxxzutyzC3U37DXWAheJbO4MpTFARapG/K8gs4fclx2hUEGBsmyuydQD/kIB3/SS+xgb8JlA4BSmarFi2iTVhhslVay5MtTvunxltYfpoGDQE8bZLNxctinI6mU7EMD0iE60GKKnmKP1uDASG7uGz3RTPscmeyPeYHqm/7+tWXBZxicukA1Z/OtaSdgHfqFTkjpFWmt+/S/RF9A2rt3c2pWQ0Fhq2CWbmLYhi1QHOoZGKLcA2fjeRaDBNYQl2tzgPHFO1M7Fz6cXSzcbPzJvHFrpTE/TY8fMb8gCFz2Sz0seTBkv7B5Oa37m1wXiwEczvz8AfuCBtORU25EgHTAvf3np8jKtkIFz6qOxzk7iO10VFuJfwVwGWBVp+26oTh4v24t0TgEi9qdIywRQZ0mHXlSInzRhGgcUZeWbhc8YfbgiAzLH4n/K3EXs/cLe1aHaWs30ihDmucEEEIaB96rK4YQue4wqTv+0="
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
+  - curl https://bitbucket.org/Swyter/bitbucket-curl-upload-to-repo-downloads/raw/default/upload-to-bitbucket.sh -O -J && chmod +x ./upload-to-bitbucket.sh
+
+before_script:
+  - cd ApproxSpline/Resources
+  - mkdir Library
+  - cd Library
+  - mkdir linux32
+  - mkdir linux64
+  - cd $TRAVIS_BUILD_DIR
+
+script:
+  - cd ApproxSpline/Resources/C-Sources
+  - if [[ "$PLATFORM" == "32" ]]; then make CFLAGS="-O3 -msse2 -m32 -fPIC" TARGETDIR="linux32"; fi
+  - if [[ "$PLATFORM" == "64" ]]; then make CFLAGS="-O3 -fPIC"; fi
+  - cd ../Library/linux$PLATFORM
+  - tar cJf ApproxSpline_linux$PLATFORM.tar.xz $DEPLOY_LIBS
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CC" == "gcc-4.8" ]]; then sh ../../../../upload-to-bitbucket.sh tbeu $BBPASS /tbeu/downloads/downloads ApproxSpline_linux$PLATFORM.tar.xz; fi
+
+notifications:
+  email: false
+
+sudo: false
