@@ -328,7 +328,6 @@ core:
 				ModelicaFormatMessage("\t 2*k+2<=n<=min(nest,m+k+1) : %s\n",
 					((2*k+2) <= n) && (n <= min(spl->nest,m+k+1)) ?  "OK" : "FAIL");
 		}
-		fflush(NULL);
 		ModelicaFormatError("\n core routine 'curfit' returns err: ier=%d \n", ierr);
 	}
 
@@ -470,8 +469,6 @@ core:
 				ModelicaFormatMessage("\t 2*k+2<=n<=min(nest,m+k+1) : %s\n",
 					((2*k+2) <= n) && (n <= min(spl->nest,m+k+1)) ?  "OK" : "FAIL");
 		}
-
-		fflush(NULL);
 		ModelicaFormatError("\n core routine 'percur' returns err: ier=%d \n", ierr);
 	}
 
