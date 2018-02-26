@@ -6,15 +6,15 @@ package Blocks "Sublibrary of ready to use blocks"
     extends Icons.Curve1d;
 
     parameter Real data[:,:]
-      "data to be fitted: [x,y,w] (w is optional weight)";
-    parameter Real s(min=0) = 0 "smoothing factor (s>=0)";
-    parameter Integer k(min=1,max=5) = 3 "degree of spline (should be odd)";
+      "Data to be fitted: [x,y,w] (w is optional weight)";
+    parameter Real s(min=0) = 0 "Smoothing factor (s>=0)";
+    parameter Integer k(min=1,max=5) = 3 "Degree of spline (should be odd)";
     parameter Boolean periodic = false
-      "set true to generate periodic spline curve";
+      "= true to generate periodic spline curve";
     parameter Real x_lim[2] = { ApproxSpline.Utilities.vmin(data[:,1]), ApproxSpline.Utilities.vmax(data[:,1])}
-      "boundaries of interpolation interval";
+      "Boundaries of interpolation interval";
     parameter Real t[:] = fill(0,0)
-      "array of knot positions (if given, a least square spline is generated)";
+      "Array of knot positions (if given, a least square spline is generated)";
 
   protected
     ApproxSpline.Curve1d.Type spl = ApproxSpline.Curve1d.Type(data=data, s=s, k=k, x_lim=x_lim, t=t);
@@ -61,13 +61,13 @@ The last column w[i] is the optional weight of the data points. If no weights ar
     extends Icons.Surf2d;
 
     parameter Boolean rectangular = false
-      "set true if input data is on rectangular grid, otherwise assume scattered data";
-    parameter Real data[:,:] "data to be fitted: (see documentation)";
-    parameter Real s(min=0) = 0 "smoothing factor (s>=0)";
+      "= true if input data is on rectangular grid, otherwise assume scattered data";
+    parameter Real data[:,:] "Data to be fitted: (see documentation)";
+    parameter Real s(min=0) = 0 "Smoothing factor (s>=0)";
     parameter Integer kx(min=1,max=5) = 3
-      "degree of X-dir spline (should be odd)";
+      "Degree of X-dir spline (should be odd)";
     parameter Integer ky(min=1,max=5) = 3
-      "degree of Y-dir spline (should be odd)";
+      "Degree of Y-dir spline (should be odd)";
     parameter Real x_lim[2] = {
       if rectangular then  ApproxSpline.Utilities.vmin(data[2:size(data,1),1]) else  ApproxSpline.Utilities.vmin(data[:,1]),
       if rectangular then  ApproxSpline.Utilities.vmax(data[2:size(data,1),1]) else  ApproxSpline.Utilities.vmax(data[:,1])}
@@ -77,9 +77,9 @@ The last column w[i] is the optional weight of the data points. If no weights ar
       if rectangular then  ApproxSpline.Utilities.vmax(data[1,2:size(data,2)]) else  ApproxSpline.Utilities.vmax(data[:,2])}
       "Y-dir boundaries of interpolation interval";
     parameter Real tx[:] = fill(0,0)
-      "array of X-dir knot positions (if given together with ty, a least square spline is generated)";
+      "Array of X-dir knot positions (if given together with ty, a least square spline is generated)";
     parameter Real ty[:] = fill(0,0)
-      "array of Y-dir knot positions (if given together with ty, a least square spline is generated)";
+      "Array of Y-dir knot positions (if given together with tx, a least square spline is generated)";
 
   protected
     ApproxSpline.Surf2d.Type spl = ApproxSpline.Surf2d.Type(rectangular, data, s, kx, ky, x_lim, y_lim, tx, ty);
