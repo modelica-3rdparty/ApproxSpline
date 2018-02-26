@@ -312,7 +312,7 @@ core:
 
 		if (ierr==10) {
 			int s;
-			ModelicaFormatMessage("%s\n", "check input paramters:");
+			ModelicaFormatMessage("%s\n", "check input parameters:");
 			ModelicaFormatMessage("\t 1<=k<=5 : %s\n", ((1<=k) && (k<=5)) ? "OK" : "FAIL");
 			ModelicaFormatMessage("\t m>k : %s\n", (m>k) ? "OK" : "FAIL");
 			ModelicaFormatMessage("\t nest>2*k+2 : %s\n", (spl->nest>(2*k+2)) ? "OK" : "FAIL");
@@ -456,7 +456,7 @@ core:
 			ModelicaFormatMessage("percur: c[%d]=%f  t[%d]=%f\n", i, spl->c[i], i, spl->t[i]);
 		}
 		if (ierr==10) {
-			ModelicaFormatMessage("%s\n", "check input paramters:");
+			ModelicaFormatMessage("%s\n", "check input parameters:");
 			ModelicaFormatMessage("\t 1<=k<=5 : %s\n", ((1<=k) && (k<=5)) ? "OK" : "FAIL");
 			ModelicaFormatMessage("\t m>k : %s\n", (m>k) ? "OK" : "FAIL");
 			ModelicaFormatMessage("\t nest>2*k+2 : %s\n", (spl->nest>(2*k+2)) ? "OK" : "FAIL");
@@ -710,7 +710,7 @@ void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 	}
 
 	if (ierr==1) {
-		ModelicaFormatMessage("\n\nsurfit: approximation returned is the weighted least-squares sline according to the current set of knots.\n"
+		ModelicaFormatMessage("\n\nsurfit: approximation returned is the weighted least-squares spline according to the current set of knots.\n"
 			"However, smoothing parameter s=%f cannot be fulfilled. Weighted sum of squared residuals fp=%f\n",
 			s, surf->fp);
 	}
@@ -877,7 +877,7 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 		iwrk, &(kwrk), &ierr);
 
 	if (ierr==1) {
-		ModelicaFormatMessage("\n\nregrid: approximation returned is the weighted least-squares sline according to the current set of knots.\n"
+		ModelicaFormatMessage("\n\nregrid: approximation returned is the weighted least-squares spline according to the current set of knots.\n"
 			"However, smoothing parameter s=%f cannot be fulfilled. Weighted sum of squared residuals fp=%f\n",
 			s, surf->fp);
 	}
