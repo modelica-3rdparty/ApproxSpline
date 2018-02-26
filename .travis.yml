@@ -37,14 +37,6 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
   - curl https://bitbucket.org/Swyter/bitbucket-curl-upload-to-repo-downloads/raw/default/upload-to-bitbucket.sh -O -J && chmod +x ./upload-to-bitbucket.sh
 
-before_script:
-  - cd ApproxSpline/Resources
-  - mkdir Library
-  - cd Library
-  - mkdir linux32
-  - mkdir linux64
-  - cd $TRAVIS_BUILD_DIR
-
 script:
   - cd ApproxSpline/Resources/C-Sources
   - if [[ "$PLATFORM" == "32" ]]; then make CFLAGS="-O3 -msse2 -m32 -fPIC" TARGETDIR="linux32"; fi
