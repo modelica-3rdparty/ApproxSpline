@@ -64,40 +64,41 @@ typedef struct { /* 2-D spline surface */
 
 void indexx(int n, double arrin[], int indx[])
 {
-        int l,j,ir,indxt,i;
-        double q;
+	int l,j,ir,indxt,i;
+	double q;
 
-		arrin--;
-		indx--;
+	arrin--;
+	indx--;
 
-        for (j=1;j<=n;j++) indx[j]=j;
-        if (n == 1) return;
-        l=(n >> 1) + 1;
-        ir=n;
-        for (;;) {
-                if (l > 1)
-                        q=arrin[(indxt=indx[--l])];
-                else {
-                        q=arrin[(indxt=indx[ir])];
-                        indx[ir]=indx[1];
-                        if (--ir == 1) {
-                                indx[1]=indxt;
-                                return;
-                        }
-                }
-                i=l;
-                j=l << 1;
-                while (j <= ir) {
-                        if (j < ir && arrin[indx[j]] < arrin[indx[j+1]]) j++;
-                        if (q < arrin[indx[j]]) {
-                                indx[i]=indx[j];
-                                j += (i=j);
-                        }
-                        else j=ir+1;
-                }
-                indx[i]=indxt;
-        }
+	for (j=1;j<=n;j++) indx[j]=j;
+	if (n == 1) return;
+	l=(n >> 1) + 1;
+	ir=n;
+	for (;;) {
+			if (l > 1)
+					q=arrin[(indxt=indx[--l])];
+			else {
+					q=arrin[(indxt=indx[ir])];
+					indx[ir]=indx[1];
+					if (--ir == 1) {
+							indx[1]=indxt;
+							return;
+					}
+			}
+			i=l;
+			j=l << 1;
+			while (j <= ir) {
+					if (j < ir && arrin[indx[j]] < arrin[indx[j+1]]) j++;
+					if (q < arrin[indx[j]]) {
+							indx[i]=indx[j];
+							j += (i=j);
+					}
+					else j=ir+1;
+			}
+			indx[i]=indxt;
+	}
 }
+
 void swapDouble(double *x, double *y) {
 	double s1;
 	s1 = *x;
@@ -124,6 +125,7 @@ double standardDeviation(double *x, int n) {
 	}
 	return sqrt(sx2/(n - 1));
 }
+
 void transposeDouble(double *A, int nr, int nc) {
 	/* transpose array A of dimension [n x m] */
 	int ir,ic;
@@ -147,6 +149,7 @@ void printDoubleArrayC(char *name, double *A, int nr, int nc) {
 	}
 	ModelicaFormatMessage("}\n\n");
 }
+
 void printDoubleArrayR(char *name, double *A, int nr, int nc) {
 	int ir,ic;
 	ModelicaFormatMessage("\n\nrow-wise %s = {\n", name);
@@ -199,8 +202,8 @@ int dblcmp(const void *p1, const void *p2) {
 	}
 	return y;
 }
-void *curve1dNonPeriodicNew(double *data, int m, int nc, double *x_lim, int k, double s, double *t, int n) {
 
+void *curve1dNonPeriodicNew(double *data, int m, int nc, double *x_lim, int k, double s, double *t, int n) {
 	Curve1d *spl;
 	int i,iopt,ierr,lwrk,kwrk,*iwrk;
 	double *x,*y,*w,*wrk;
@@ -342,7 +345,6 @@ core:
 }
 
 void *curve1dPeriodicNew(double *data, int m, int nc, int k, double s, double *t, int n) {
-
 	Curve1d *spl;
 	int i,iopt,ierr,lwrk,kwrk,*iwrk;
 	double *x,*y,*w,*wrk;
@@ -479,7 +481,6 @@ core:
 	free(iwrk);
 
 	return (void *) spl;
-
 }
 
 void *curve1dNew(int isPeriodic, double *data, int m, int nc, double *x_lim, int k, double s, double *t, int n) {
@@ -492,7 +493,6 @@ void *curve1dNew(int isPeriodic, double *data, int m, int nc, double *x_lim, int
 }
 
 void curve1dDel(void *obj) {
-
 	Curve1d *spl = (Curve1d *) obj;
 
 	if (spl == NULL) return;
@@ -607,7 +607,6 @@ double mapPeriodic(double *x_lim, double x) {
 
 void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 					int kx, int ky, double s, double *tx, double *ty, int nx, int ny) {
-
 	Surf2d *surf;
 	int i,iopt,ierr,nmax,lwrk1,lwrk2,kwrk,*iwrk;
 	double *x,*y,*z,*w,*wrk1,*wrk2;
@@ -795,9 +794,9 @@ void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 	return (void *) surf;
 
 }
+
 void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 					int kx, int ky, double s, double *tx, double *ty, int nx, int ny) {
-
 	Surf2d *surf;
 	int i,iopt,ierr,nmax,lwrk,kwrk,*iwrk;
 	double *x,*y,*z,*wrk;
@@ -990,18 +989,18 @@ int surf2dLengthOfWrk1(int nxest, int nyest, int kx, int ky, int m) {
 	u = nxest-kx-1;
 	v = nyest-ky-1;
 	km = max(kx,ky)+1;
-    ne = max(nxest,nyest);
+	ne = max(nxest,nyest);
 	bx = kx*v+ky+1;
 	by = ky*u+kx+1;
 	if(bx<=by) {
 		b1 = bx;
 		b2 = b1+v-ky;
 	}
-	if(bx>by) {
+	else {
 		b1 = by;
 		b2 = b1+u-kx;
 	}
-    return u*v*(2+b1+b2)+2*(u+v+km*(m+ne)+ne-kx-ky)+b2+1;
+	return u*v*(2+b1+b2)+2*(u+v+km*(m+ne)+ne-kx-ky)+b2+1;
 }
 
 int surf2dLengthOfWrk2(int nxest, int nyest, int kx, int ky, int m) {
@@ -1009,18 +1008,18 @@ int surf2dLengthOfWrk2(int nxest, int nyest, int kx, int ky, int m) {
 	u = nxest-kx-1;
 	v = nyest-ky-1;
 	km = max(kx,ky)+1;
-    ne = max(nxest,nyest);
+	ne = max(nxest,nyest);
 	bx = kx*v+ky+1;
 	by = ky*u+kx+1;
 	if(bx<=by) {
 		b1 = bx;
 		b2 = b1+v-ky;
 	}
-	if(bx>by) {
+	else {
 		b1 = by;
 		b2 = b1+u-kx;
 	}
-    return u*v*(b2+1)+b2;
+	return u*v*(b2+1)+b2;
 }
 
 double surf2dEval(void *obj, double x, double y) {
@@ -1065,6 +1064,7 @@ void surf2dGetNumberOfKnots(void *obj, int *nx, int *ny) {
 	*nx = s->nx;
 	*ny = s->ny;
 }
+
 int surf2dGetNumberOfKnotsX(void *obj) {
 	Surf2d *s = (Surf2d *) obj;
 	return s->nx;
@@ -1077,10 +1077,10 @@ int surf2dGetNumberOfKnotsY(void *obj) {
 
 void *surf2dNew(int isRect, double *data, int mx, int my, double *x_lim, double *y_lim,
 				int kx, int ky, double s, double *tx, double *ty, int nx, int ny) {
-					if (isRect) {
-						return surf2dRectNew(data, mx, my, x_lim, y_lim, kx, ky, s, tx, ty, nx, ny);
-					} else {
-						return surf2dScatNew(data, mx, my, x_lim, y_lim, kx, ky, s, tx, ty, nx, ny);
-					}
-					return NULL; /* never reached */
+	if (isRect) {
+		return surf2dRectNew(data, mx, my, x_lim, y_lim, kx, ky, s, tx, ty, nx, ny);
+	} else {
+		return surf2dScatNew(data, mx, my, x_lim, y_lim, kx, ky, s, tx, ty, nx, ny);
+	}
+	return NULL; /* never reached */
 }
