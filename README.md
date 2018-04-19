@@ -4,7 +4,7 @@ Free Modelica library for wrapping the [DIERCKX](http://www.netlib.org/dierckx/i
 The library was presented at the [7th International Modelica Conference](https://modelica.org/events/modelica2009/Proceedings/memorystick/pages/MODEL09_ContentListWeb_3.html#tudt1_07) and is described in the  [article](http://dx.doi.org/10.3384/ecp09430013) by Jörg Weiss-Ungethüm and Dirk Hülsebusch.
 
 ## Build status
-[![Build Status](https://travis-ci.org/tbeu/ApproxSpline.svg?branch=master)](https://travis-ci.org/tbeu/ApproxSpline)
+[![Build Status](https://travis-ci.org/modelica-3rdparty/ApproxSpline.svg?branch=master)](https://travis-ci.org/modelica-3rdparty/ApproxSpline)
 
 ## License
 This Modelica package is released under the terms of the [Revised BSD License](LICENSE).
