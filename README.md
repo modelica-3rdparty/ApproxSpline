@@ -13,7 +13,7 @@ This Modelica package is released under the terms of the [Revised BSD License](L
 Many thanks to Prof. Paul Dierckx the author of the DIERCKX Fortran code.
 
 ## Development and contribution
-* [Jörg Weiss-Ungethüm](http://www.dlr.de/tt/desktopdefault.aspx/tabid-4074/6449_read-26380)
+* [Jörg Weiss-Ungethüm](https://github.com/joergu)
 * [tbeu](https://github.com/tbeu)
 
 You may report any issues with using the [Issues](../../issues) button.
