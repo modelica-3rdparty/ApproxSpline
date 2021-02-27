@@ -1,7 +1,7 @@
 within ;
 package ApproxSpline "Approximation spline library"
   extends Modelica.Icons.Package;
-  annotation (uses(Modelica(version="3.2.2")), version="1.0.0",
+  annotation (uses(Modelica(version="4.0.0")), version="1.0.1",
 Documentation(info="<html>
 <h4>ApproxSpline -- A Modelica library for piecewise polynomial spline approximating</h4>
 

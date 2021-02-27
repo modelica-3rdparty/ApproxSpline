@@ -233,16 +233,16 @@ package TestModels
           3.14500586553911E-032; (-2.44929359829471E-016),1.0,
           3.14500586553911E-032], s=5)
       annotation (Placement(transformation(extent={{-20,20},{0,40}})));
-    Modelica.Blocks.Sources.Clock clock
+    Modelica.Blocks.Sources.ContinuousClock clock
       annotation (Placement(transformation(extent={{-80,14},{-60,34}})));
     Modelica.Blocks.Sources.Constant const(k=0.5)
-      annotation (Placement(transformation(extent={{-78,58},{-58,78}})));
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
     connect(clock.y, surf2d.u2) annotation (Line(
         points={{-59,24},{-22,24}},
         color={0,0,127}));
     connect(const.y, surf2d.u1) annotation (Line(
-        points={{-57,68},{-40,68},{-40,36},{-22,36}},
+        points={{-59,70},{-40,70},{-40,36},{-22,36}},
         color={0,0,127}));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}})));
