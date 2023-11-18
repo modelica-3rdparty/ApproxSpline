@@ -781,7 +781,7 @@ void *surf2dScatNew(double *data, int m, int nc, double *x_lim, double *y_lim,
 	free(iwrk);
 
 	/* calculate working arrays for derivative calculation */
-	surf->lwrk = MX_MAX*(kx)+MY_MAX*(ky)+(nx-kx-1)*(ny-ky-1);
+	surf->lwrk = MX_MAX*(kx)+MY_MAX*(ky)+((surf->nx)-kx-1)*((surf->ny)-ky-1);
 	surf->kwrk = MX_MAX+MY_MAX;
 
 	/* allocate persistence working arrays for derivative calculation*/
@@ -802,7 +802,7 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 	double *x,*y,*z,*wrk;
 	double eps = sqrt(DBL_EPSILON);
 
-	/* mx, my are the sizes of the Modelica data array but we need the lenghts of vectors x and y */
+	/* mx, my are the sizes of the Modelica data array but we need the lengths of vectors x and y */
 	mx--;my--;
 
 	/* allocate data arrays */
@@ -954,7 +954,7 @@ void *surf2dRectNew(double *data, int mx, int my, double *x_lim, double *y_lim,
 	free(iwrk);
 
 	/* calculate working arrays for derivative calculation */
-	surf->lwrk = MX_MAX*(kx)+MY_MAX*(ky)+(nx-kx-1)*(ny-ky-1);
+	surf->lwrk = MX_MAX*(kx)+MY_MAX*(ky)+((surf->nx)-kx-1)*((surf->ny)-ky-1);
 	surf->kwrk = MX_MAX+MY_MAX;
 
 	/* allocate persistence working arrays for derivative calculation*/
